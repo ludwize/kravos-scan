@@ -134,6 +134,7 @@ fun DocumentScreen(docId: String) {
     var signing by remember { mutableStateOf(PendingSign.docId == docId && app.store.signatureFile().exists()) }
     LaunchedEffect(Unit) { PendingSign.docId = null }
     var zoomed by remember { mutableStateOf(false) }
+    var sign by remember { mutableStateOf(Stamp(0.58f, 0.72f, 0.32f)) }
 
     Column(Modifier.fillMaxSize()) {
         TopBar(doc.name, onBack = { nav.back() }, onTitle = { rename = true }) {
@@ -155,15 +156,30 @@ fun DocumentScreen(docId: String) {
         Box(Modifier.weight(1f).fillMaxWidth()) {
             HorizontalPager(pager, Modifier.fillMaxSize(), userScrollEnabled = !zoomed && !signing, beyondViewportPageCount = 1, key = { doc.pages.getOrNull(it)?.id ?: it }) { i ->
                 val p = doc.pages.getOrNull(i)
-                if (p != null) PageView(doc, p, onZoom = { zoomed = it }, signing = signing && i == pager.currentPage, onSigned = { st ->
-                    signing = false
-                    if (st != null) app.scope.launch { app.store.setStamps(doc.id, p.id, p.stamps + st) }
-                })
+                if (p != null) PageView(doc, p, onZoom = { zoomed = it }, sign = if (signing && i == pager.currentPage) sign else null, onSignMove = { sign = it })
             }
             val ocrMsg = ocrState[doc.id]
             Row(Modifier.align(Alignment.TopCenter).padding(top = 6.dp), horizontalArrangement = Arrangement.spacedBy(6.dp)) {
                 if (doc.pages.size > 1) Chip("${pager.currentPage + 1} / ${doc.pages.size}")
                 if (ocrMsg != null) Chip(ocrMsg)
+            }
+        }
+
+        if (signing && page != null) {
+            val nav2 = LocalNav.current
+            Column(Modifier.fillMaxWidth().background(MaterialTheme.colorScheme.surfaceContainerLow).navigationBarsPadding().padding(horizontal = 16.dp, vertical = 8.dp)) {
+                Text("Prevuci potpis na mesto. Veličina:", fontSize = 13.sp)
+                Slider(value = sign.w, onValueChange = { sign = sign.copy(w = it, x = sign.x.coerceAtMost(1f - it)) }, valueRange = 0.1f..0.7f)
+                Row(horizontalArrangement = Arrangement.spacedBy(8.dp), verticalAlignment = Alignment.CenterVertically) {
+                    TextButton(onClick = { signing = false }) { Text("Otkaži") }
+                    TextButton(onClick = { signing = false; PendingSign.docId = doc.id; nav2.go(Route.Signature(doc.id)) }) { Text("Novi potpis") }
+                    Spacer(Modifier.weight(1f))
+                    Button(onClick = {
+                        signing = false
+                        val st = sign
+                        app.scope.launch { app.store.setStamps(doc.id, page.id, page.stamps + st) }
+                    }) { Text("Postavi") }
+                }
             }
         }
 
@@ -222,7 +238,8 @@ private fun Chip(t: String) {
 
 /** One page: pinch/double-tap zoom, or signature placement on top of it. */
 @Composable
-private fun PageView(doc: Doc, p: Page, onZoom: (Boolean) -> Unit, signing: Boolean, onSigned: (Stamp?) -> Unit) {
+private fun PageView(doc: Doc, p: Page, onZoom: (Boolean) -> Unit, sign: Stamp?, onSignMove: (Stamp) -> Unit) {
+    val signing = sign != null
     val app = LocalApp.current
     val ctx = LocalContext.current
     var scale by remember(p.rendered) { mutableFloatStateOf(1f) }
@@ -268,21 +285,22 @@ private fun PageView(doc: Doc, p: Page, onZoom: (Boolean) -> Unit, signing: Bool
                 BitmapFactory.decodeFile(sigFile.path, o)
                 if (o.outWidth > 0) o.outHeight.toFloat() / o.outWidth else 0.4f
             }
-            var sw by remember { mutableFloatStateOf(0.32f) }
-            var sx by remember { mutableFloatStateOf(0.6f) }
-            var sy by remember { mutableFloatStateOf(0.8f) }
-            val boxW = dw * sw; val boxH = boxW * aspect * (1f) // display px
+            val st = sign!!
+            val boxW = dw * st.w; val boxH = boxW * aspect
             val density = LocalDensity.current
+            val cur by androidx.compose.runtime.rememberUpdatedState(st)
             Box(
-                Modifier.offset { IntOffset((left + sx * dw).roundToInt(), (top + sy * dh).roundToInt()) }
-                    .align(Alignment.TopStart)
+                Modifier.align(Alignment.TopStart)
+                    .offset { IntOffset((left + st.x * dw).roundToInt(), (top + st.y * dh).roundToInt()) }
                     .size(with(density) { boxW.toDp() }, with(density) { boxH.toDp() })
                     .border(1.5.dp, MaterialTheme.colorScheme.primary, RoundedCornerShape(4.dp))
-                    .pointerInput(Unit) {
+                    .background(MaterialTheme.colorScheme.primary.copy(alpha = 0.08f))
+                    .pointerInput(dw, dh) {
                         detectDragGestures { ch2, d ->
                             ch2.consume()
-                            sx = (sx + d.x / dw).coerceIn(0f, 1f - sw)
-                            sy = (sy + d.y / dh).coerceIn(0f, 1f - boxH / dh)
+                            val c = cur
+                            val hFrac = c.w * aspect * dw / dh
+                            onSignMove(c.copy(x = (c.x + d.x / dw).coerceIn(0f, 1f - c.w), y = (c.y + d.y / dh).coerceIn(0f, (1f - hFrac).coerceAtLeast(0f))))
                         }
                     },
             ) {
@@ -290,20 +308,6 @@ private fun PageView(doc: Doc, p: Page, onZoom: (Boolean) -> Unit, signing: Bool
                     model = ImageRequest.Builder(ctx).data(sigFile).memoryCacheKey("${sigFile.path}:${sigFile.lastModified()}").build(),
                     contentDescription = "Potpis", modifier = Modifier.fillMaxSize(),
                 )
-            }
-            Column(
-                Modifier.align(Alignment.BottomCenter).fillMaxWidth().clip(RoundedCornerShape(16.dp))
-                    .background(MaterialTheme.colorScheme.surfaceContainerHigh).padding(12.dp),
-            ) {
-                Text("Prevuci potpis na mesto. Veličina:", fontSize = 13.sp)
-                Slider(value = sw, onValueChange = { sw = it; sx = sx.coerceAtMost(1f - it) }, valueRange = 0.1f..0.7f)
-                Row(horizontalArrangement = Arrangement.spacedBy(8.dp)) {
-                    OutlinedButton(onClick = { onSigned(null) }) { Text("Otkaži") }
-                    val nav = LocalNav.current
-                    OutlinedButton(onClick = { onSigned(null); PendingSign.docId = doc.id; nav.go(Route.Signature(doc.id)) }) { Text("Novi potpis") }
-                    Spacer(Modifier.weight(1f))
-                    Button(onClick = { onSigned(Stamp(sx, sy, sw)) }) { Text("Postavi") }
-                }
             }
         }
     }

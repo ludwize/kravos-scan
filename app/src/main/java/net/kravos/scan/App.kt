@@ -49,6 +49,7 @@ class App : Application(), ImageLoaderFactory {
         Http.init(this)
         prefs = Prefs(this)
         store = Store(this, prefs)
+        store.onGeometryChanged = { id -> store.get(id)?.let { autoOcr(it) } }
     }
 
     override fun newImageLoader(): ImageLoader =
@@ -120,7 +121,8 @@ class App : Application(), ImageLoaderFactory {
                     if (cur.rendered.isEmpty()) return@forEachIndexed
                     val r = Ocr.recognize(this@App, store.file(docId, cur.rendered), prefs.ocrLangs)
                     // the page may have been edited meanwhile; then its render name changed and we drop the result
-                    if (store.get(docId)?.pages?.firstOrNull { it.id == p.id }?.rendered == cur.rendered) store.setOcr(docId, p.id, r.text, r.words)
+                    val now = store.get(docId)?.pages?.firstOrNull { it.id == p.id }
+                    if (now != null && now.rot == cur.rot && now.quad == cur.quad) store.setOcr(docId, p.id, r.text, r.words)
                 }
             } catch (e: Exception) {
                 Log.e(TAG, "OCR failed", e); toast("OCR greška: ${e.message}")

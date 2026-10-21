@@ -168,22 +168,27 @@ class Store(private val ctx: Context, private val prefs: Prefs) {
     }
 
     suspend fun setFilter(docId: String, pageId: String?, f: Filter) {
-        update(docId) { d -> d.copy(pages = d.pages.map { if (pageId == null || it.id == pageId) it.copy(filter = f, rendered = "", text = null) else it }) }
+        update(docId) { d -> d.copy(pages = d.pages.map { if (pageId == null || it.id == pageId) it.copy(filter = f, rendered = "") else it }) }
         renderAll(docId)
     }
 
     suspend fun rotate(docId: String, pageId: String, deg: Int) {
         update(docId) { d -> d.copy(pages = d.pages.map { if (it.id == pageId) it.copy(rot = (it.rot + deg + 360) % 360, rendered = "", text = null, stamps = emptyList()) else it }) }
         renderAll(docId)
+        onGeometryChanged?.invoke(docId)
     }
 
     suspend fun setQuad(docId: String, pageId: String, quad: List<Float>?) {
         update(docId) { d -> d.copy(pages = d.pages.map { if (it.id == pageId) it.copy(quad = quad, rendered = "", text = null, stamps = emptyList()) else it }) }
         renderAll(docId)
+        onGeometryChanged?.invoke(docId)
     }
 
+    /** Called after rotate/crop, which invalidate OCR word positions. */
+    var onGeometryChanged: ((String) -> Unit)? = null
+
     suspend fun setStamps(docId: String, pageId: String, stamps: List<Stamp>) {
-        update(docId) { d -> d.copy(pages = d.pages.map { if (it.id == pageId) it.copy(stamps = stamps, rendered = "", text = null) else it }) }
+        update(docId) { d -> d.copy(pages = d.pages.map { if (it.id == pageId) it.copy(stamps = stamps, rendered = "") else it }) }
         renderAll(docId)
     }
 
