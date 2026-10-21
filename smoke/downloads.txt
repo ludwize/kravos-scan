@@ -1,0 +1,2 @@
+ls: /sdcard/Download/Kravos: No such file or directory
+ls: Sken/: No such file or directory

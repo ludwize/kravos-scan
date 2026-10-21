@@ -1,0 +1,37 @@
+shot 01-empty
+shot 02-processing
+shot 03-library
+shot 10-doc
+not found: Original
+shot 11-doc-original
+not found: Crno-belo
+shot 12-doc-bw
+not found: Magija
+shot 13-doc-magic
+not found: Tekst
+shot 14-doc-text
+not found: Iseci
+shot 15-crop
+not found: Potpis
+shot 16-signature
+shot 17-signature-drawn
+not found: Sačuvaj
+shot 18-sign-place
+not found: Postavi
+shot 19-signed
+not found: Izvezi
+shot 20-export
+not found: Preuzimanja
+shot 21-exported
+shot 30-photo
+shot 31-id
+not found: Pretraga
+shot 40-search
+not found: Pretraga
+not found: Podešavanja
+shot 50-settings
+not found: Lična karta
+shot 60-id-dialog
+not found: Otkaži
+not found: Dokument
+shot 61-scanner
