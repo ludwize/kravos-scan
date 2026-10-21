@@ -194,7 +194,8 @@ private fun Root(app: App) {
     LaunchedEffect(msg) { if (msg != null) { delay(4000); app.toast(null) } }
 
     CompositionLocalProvider(LocalScan provides actions) {
-        Box(Modifier.fillMaxSize().background(MaterialTheme.colorScheme.background)) {
+        Surface(Modifier.fillMaxSize(), color = MaterialTheme.colorScheme.background, contentColor = MaterialTheme.colorScheme.onBackground) {
+        Box(Modifier.fillMaxSize()) {
             Column(Modifier.fillMaxSize()) {
                 val r = release
                 val showBanner = r != null && Updater.isNewer(r) && !bannerHidden && r.build != app.prefs.skippedBuild
@@ -237,6 +238,7 @@ private fun Root(app: App) {
                 }
             }
         }
+    }
     }
     @Suppress("unused") val keep = Arrangement.Center
 }

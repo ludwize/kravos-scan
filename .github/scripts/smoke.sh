@@ -13,7 +13,12 @@ adb shell am start -W -n $PKG/.ui.MainActivity > "$OUT/start.txt" 2>&1
 sleep 6
 
 shot() { adb exec-out screencap -p > "$OUT/$1.png"; echo "shot $1" >> "$OUT/steps.txt"; }
-dump() { adb shell uiautomator dump /sdcard/ui.xml >/dev/null 2>&1; adb pull /sdcard/ui.xml "$OUT/ui.xml" >/dev/null 2>&1; }
+dump() {
+  rm -f "$OUT/ui.xml"; adb shell rm -f /sdcard/ui.xml
+  adb shell uiautomator dump /sdcard/ui.xml >> "$OUT/dump-log.txt" 2>&1
+  adb pull /sdcard/ui.xml "$OUT/ui.xml" >/dev/null 2>&1
+  [ -f "$OUT/ui-first.xml" ] || cp "$OUT/ui.xml" "$OUT/ui-first.xml" 2>/dev/null
+}
 
 # tap_text "<exact text or content-desc>" [index]
 tap_text() {
@@ -99,6 +104,7 @@ PY
 [ -s "$OUT/tap.txt" ] && adb shell input tap $(cat "$OUT/tap.txt"); sleep 4
 shot 31-id
 back
+shot 32-library-again
 
 tap_text "Pretraga"; sleep 1
 adb shell input text "Zakupac"; sleep 3; shot 40-search

@@ -10,105 +10,132 @@ import net.kravos.scan.pdf.PdfWriter
 import net.kravos.scan.pdf.Word
 import org.junit.Assert.assertTrue
 import org.junit.Test
-import java.awt.Color
-import java.awt.Font
-import java.awt.GradientPaint
-import java.awt.RadialGradientPaint
-import java.awt.RenderingHints
-import java.awt.image.BufferedImage
 import java.io.ByteArrayOutputStream
+import java.io.DataOutputStream
 import java.io.File
-import javax.imageio.ImageIO
+import java.util.zip.CRC32
+import kotlin.math.hypot
+import kotlin.math.max
+import kotlin.math.min
 
 /**
- * Runs the image pipeline on synthetic camera shots and writes the results to
- * build/test-out, which CI publishes so the outputs can be looked at.
+ * Runs the image pipeline on synthetic camera shots (drawn in plain Kotlin — Android unit
+ * tests have no AWT) and writes PNGs to build/test-out, which CI publishes for inspection.
  */
 class PipelineTest {
     private val out = File(System.getProperty("user.dir"), "build/test-out").apply { mkdirs() }
 
-    private fun toImg(b: BufferedImage) = Img(b.width, b.height, b.getRGB(0, 0, b.width, b.height, null, 0, b.width))
-    private fun save(i: Img, name: String) {
-        val b = BufferedImage(i.w, i.h, BufferedImage.TYPE_INT_RGB); b.setRGB(0, 0, i.w, i.h, i.px, 0, i.w)
-        ImageIO.write(b, "png", File(out, "$name.png"))
-    }
-    private fun jpeg(i: Img): ByteArray {
-        val b = BufferedImage(i.w, i.h, BufferedImage.TYPE_INT_RGB); b.setRGB(0, 0, i.w, i.h, i.px, 0, i.w)
-        return ByteArrayOutputStream().also { ImageIO.write(b, "jpg", it) }.toByteArray()
+    private fun rgb(r: Int, g: Int, b: Int) = (0xFF shl 24) or (r.coerceIn(0, 255) shl 16) or (g.coerceIn(0, 255) shl 8) or b.coerceIn(0, 255)
+
+    private fun png(i: Img, name: String) {
+        val raw = ByteArrayOutputStream()
+        for (y in 0 until i.h) {
+            raw.write(0)
+            for (x in 0 until i.w) { val c = i.px[y * i.w + x]; raw.write((c shr 16) and 255); raw.write((c shr 8) and 255); raw.write(c and 255) }
+        }
+        val bo = ByteArrayOutputStream(); val d = DataOutputStream(bo)
+        d.write(byteArrayOf(-119, 80, 78, 71, 13, 10, 26, 10))
+        fun chunk(type: String, data: ByteArray) {
+            d.writeInt(data.size); val t = type.toByteArray(); d.write(t); d.write(data)
+            val crc = CRC32(); crc.update(t); crc.update(data); d.writeInt(crc.value.toInt())
+        }
+        val ihdr = ByteArrayOutputStream().also { DataOutputStream(it).apply { writeInt(i.w); writeInt(i.h); write(byteArrayOf(8, 2, 0, 0, 0)) } }.toByteArray()
+        chunk("IHDR", ihdr); chunk("IDAT", PdfWriter.deflate(raw.toByteArray())); chunk("IEND", ByteArray(0))
+        File(out, "$name.png").writeBytes(bo.toByteArray())
     }
 
-    /** Skewed, shadowed page photographed on a dark table. */
+    private fun inside(px: Float, py: Float, q: FloatArray): Boolean {
+        var c = false; var j = 3
+        for (i in 0 until 4) {
+            val xi = q[2 * i]; val yi = q[2 * i + 1]; val xj = q[2 * j]; val yj = q[2 * j + 1]
+            if ((yi > py) != (yj > py) && px < (xj - xi) * (py - yi) / (yj - yi) + xi) c = !c
+            j = i
+        }
+        return c
+    }
+
+    /** Skewed page with "text" bars, shadowed toward the bottom-right, on a dark table. */
     private fun photoOfPage(): Pair<Img, FloatArray> {
         val w = 1400; val h = 1800
-        val b = BufferedImage(w, h, BufferedImage.TYPE_INT_RGB)
-        val g = b.createGraphics()
-        g.setRenderingHint(RenderingHints.KEY_ANTIALIASING, RenderingHints.VALUE_ANTIALIAS_ON)
-        g.color = Color(60, 45, 35); g.fillRect(0, 0, w, h)
-        val quad = intArrayOf(180, 140, 1250, 210, 1300, 1650, 120, 1580)
-        g.paint = GradientPaint(0f, 0f, Color(238, 232, 218), w.toFloat(), h.toFloat(), Color(140, 130, 112))
-        g.fillPolygon(intArrayOf(quad[0], quad[2], quad[4], quad[6]), intArrayOf(quad[1], quad[3], quad[5], quad[7]), 4)
-        g.color = Color(35, 35, 45); g.font = Font(Font.SERIF, Font.PLAIN, 38)
-        val lines = listOf("УГОВОР О ЗАКУПУ", "Zakupac plaća do petog u mesecu.", "Beograd, 21. oktobar 2026.", "The quick brown fox.")
-        lines.forEachIndexed { i, s -> g.drawString(s, 260 + i * 4, 330 + i * 90) }
-        for (r in 0..6) g.drawLine(260, 800 + r * 70, 1120, 805 + r * 70)
-        g.dispose()
-        return toImg(b) to FloatArray(8) { quad[it].toFloat() }
+        val q = floatArrayOf(180f, 140f, 1250f, 210f, 1300f, 1650f, 120f, 1580f)
+        val img = Img(w, h)
+        for (y in 0 until h) for (x in 0 until w) {
+            img.px[y * w + x] = if (inside(x.toFloat(), y.toFloat(), q)) {
+                val t = (x + y).toFloat() / (w + h)
+                val base = rgb((238 - 100 * t).toInt(), (232 - 102 * t).toInt(), (218 - 106 * t).toInt())
+                val line = (y - 300) / 60; val ly = (y - 300) % 60
+                val isText = y in 300..1300 && ly in 14..34 && x in 280..(1100 - (line % 4) * 140) && ((x / 23) % 5 != 0)
+                if (isText) rgb(35, 35, 45) else base
+            } else rgb(60, 45, 35)
+        }
+        return img to q
     }
 
     @Test fun documentFilters() {
         val (shot, quad) = photoOfPage()
-        save(shot, "00-camera")
+        png(shot, "00-camera")
         val flat = Ops.warp(shot, quad)
-        save(flat, "01-warped")
-        for (f in Filter.entries) save(Ops.apply(flat, f), "02-filter-${f.name.lowercase()}")
+        png(flat, "01-warped")
+        for (f in Filter.entries) png(Ops.apply(flat, f), "02-filter-${f.name.lowercase()}")
         val rot = Ops.rotate(flat, 90)
         assertTrue(rot.w == flat.h && rot.h == flat.w)
+        // magic filter must flatten the shadow: paper at both ends of the gradient ends up near white
+        val m = Ops.magic(flat)
+        val tl = m.px[40 * m.w + 40] and 0xFF; val br = m.px[(m.h - 40) * m.w + (m.w - 40)] and 0xFF
+        assertTrue("paper not flattened: $tl / $br", tl > 220 && br > 220)
+    }
+
+    private fun print(gx: Int, gy: Int, dx: Int): Img {
+        val w = 1200; val h = 840
+        val img = Img(w, h)
+        for (y in 0 until h) for (xx in 0 until w) {
+            val x = xx - dx
+            var c = if (y < 460) { val t = y / 460f; rgb((150 + 55 * t).toInt(), (175 + 25 * t).toInt(), (185 - 15 * t).toInt()) }
+            else { val t = (y - 460) / 380f; rgb((140 - 30 * t).toInt(), (150 - 45 * t).toInt(), (90 - 20 * t).toInt()) }
+            for (i in 0 until 6) if (hypot((x - (170 + i * 180)).toFloat(), (y - 430).toFloat()) < 70) c = rgb(70, 85, 55)
+            if (x in 400..620 && y in 340..520) c = rgb(170, 120, 95)
+            // glare: additive white, radial falloff
+            val d = hypot((xx - gx).toFloat(), (y - gy).toFloat()) / 220f
+            if (d < 1f) {
+                val a = (1 - d) * 0.98f
+                c = rgb((((c shr 16) and 255) + (255 - ((c shr 16) and 255)) * a).toInt(), (((c shr 8) and 255) + (255 - ((c shr 8) and 255)) * a).toInt(), ((c and 255) + (255 - (c and 255)) * a).toInt())
+            }
+            img.px[y * w + xx] = c
+        }
+        return img
     }
 
     @Test fun glareMerge() {
-        fun shot(gx: Int, gy: Int, dx: Int): Img {
-            val b = BufferedImage(1200, 840, BufferedImage.TYPE_INT_RGB)
-            val g = b.createGraphics()
-            g.translate(dx, 0)
-            g.paint = GradientPaint(0f, 0f, Color(150, 175, 185), 0f, 460f, Color(205, 200, 170)); g.fillRect(-20, 0, 1240, 460)
-            g.paint = GradientPaint(0f, 460f, Color(140, 150, 90), 0f, 840f, Color(110, 105, 70)); g.fillRect(-20, 460, 1240, 380)
-            g.color = Color(70, 85, 55); for (i in 0 until 6) g.fillOval(100 + i * 180, 360, 140, 140)
-            g.color = Color(170, 120, 95); g.fillRect(400, 340, 220, 180)
-            g.translate(-dx, 0)
-            g.paint = RadialGradientPaint(gx.toFloat(), gy.toFloat(), 220f, floatArrayOf(0f, 0.45f, 1f),
-                arrayOf(Color(255, 255, 255, 250), Color(255, 255, 255, 170), Color(255, 255, 255, 0)))
-            g.fillOval(gx - 220, gy - 220, 440, 440)
-            g.dispose()
-            return toImg(b)
-        }
-        val shots = listOf(shot(300, 250, 0), shot(850, 550, 5), shot(560, 680, -4))
-        shots.forEachIndexed { i, s -> save(s, "10-glare-shot$i") }
+        val shots = listOf(print(300, 250, 0), print(850, 550, 5), print(560, 680, -4))
+        shots.forEachIndexed { i, s -> png(s, "10-glare-shot$i") }
         val m = Ops.mergeGlare(shots)
-        save(m, "11-glare-merged")
-        save(Ops.photo(m), "12-glare-merged-restored")
-        // glare center of shot 0 should be much darker after merging
+        png(m, "11-glare-merged")
+        png(Ops.photo(m), "12-glare-merged-restored")
         val before = shots[0].px[250 * 1200 + 300] and 0xFF
         val after = m.px[250 * 1200 + 300] and 0xFF
         assertTrue("glare not removed: $before -> $after", after < before - 40)
     }
 
     @Test fun idCardAndPdf() {
-        fun card(t: String): Img {
-            val b = BufferedImage(1000, 640, BufferedImage.TYPE_INT_RGB)
-            val g = b.createGraphics(); g.color = Color(205, 218, 235); g.fillRect(0, 0, 1000, 640)
-            g.color = Color(30, 40, 70); g.font = Font(Font.SANS_SERIF, Font.BOLD, 44); g.drawString(t, 50, 90); g.dispose()
-            return toImg(b)
-        }
-        val page = Ops.composeId(listOf(card("ЛИЧНА КАРТА"), card("POLEĐINA")), Ops.IdKind.ID_CARD, 150)
-        save(page, "20-id-a4")
-        val words = listOf(Word("Уговор", 100, 100, 400, 160), Word("Zakupac", 100, 200, 420, 250))
+        fun card(shade: Int): Img = Img(1000, 640).also { c -> for (i in c.px.indices) c.px[i] = rgb(205 - shade, 218 - shade, 235 - shade) }
+        val page = Ops.composeId(listOf(card(0), card(40)), Ops.IdKind.ID_CARD, 150)
+        png(page, "20-id-a4")
+        // card at true size: 85.6 mm @150 dpi ≈ 506 px
+        val row = page.h / 4
+        var first = -1; var last = -1
+        for (x in 0 until page.w) if (page.px[(page.h * 0) + row * page.w + x] != -1 && page.px[row * page.w + x] != rgb(255, 255, 255)) { if (first < 0) first = x; last = x }
+        assertTrue("card width ${last - first}", first < 0 || (last - first) in 480..530)
         val hocr = "<span class='ocrx_word' id='word_1_1' title='bbox 36 92 96 116; x_wconf 93'>Z&amp;K</span>"
         assertTrue(Hocr.parse(hocr).single() == Word("Z&K", 36, 92, 96, 116))
         val pdf = File(out, "21-test.pdf")
+        val fakeJpeg = byteArrayOf(-1, -40, -1, -39)
         pdf.outputStream().use {
-            PdfWriter(PageSize.A4, null, "Тест").write(listOf(PdfPage(jpeg(page), page.w, page.h, words = words), PdfPage(jpeg(card("x")), 1000, 640)), it)
+            PdfWriter(PageSize.A4, null, "Тест").write(
+                listOf(PdfPage(fakeJpeg, page.w, page.h, words = listOf(Word("Уговор", 100, 100, 400, 160))), PdfPage(fakeJpeg, 1000, 640)), it,
+            )
         }
         val s = pdf.readBytes().toString(Charsets.ISO_8859_1)
-        assertTrue(s.startsWith("%PDF-1.5") && s.contains("/Count 2") && s.trimEnd().endsWith("%%EOF"))
+        assertTrue(s.startsWith("%PDF-1.5") && s.contains("/Count 2") && s.contains("/MediaBox [0 0 841.89 595.28]") && s.trimEnd().endsWith("%%EOF"))
+        @Suppress("UNUSED_VARIABLE") val unused = max(0, min(1, 2))
     }
 }
