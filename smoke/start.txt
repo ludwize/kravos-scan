@@ -2,6 +2,6 @@ Starting: Intent { cmp=net.kravos.scan/.ui.MainActivity }
 Status: ok
 LaunchState: COLD
 Activity: net.kravos.scan/.ui.MainActivity
-TotalTime: 1393
-WaitTime: 1401
+TotalTime: 3473
+WaitTime: 3485
 Complete
