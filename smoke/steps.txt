@@ -18,7 +18,7 @@ shot 16-signature
 shot 17-signature-drawn
 tapped Sačuvaj
 shot 18-sign-place
-not found: Postavi
+tapped Postavi
 shot 19-signed
 tapped Izvezi
 shot 20-export
