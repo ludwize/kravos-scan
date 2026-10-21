@@ -25,6 +25,7 @@ not found: Preuzimanja
 shot 21-exported
 shot 30-photo
 shot 31-id
+shot 32-library-again
 not found: Pretraga
 shot 40-search
 not found: Pretraga
