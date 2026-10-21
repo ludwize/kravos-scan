@@ -342,9 +342,10 @@ object Ops {
             val v = rgb((r(c) * kr).roundToInt(), (g(c) * kg).roundToInt(), (b(c) * kb).roundToInt())
             wb.px[i] = v; hist[luma(v)]++
         }
-        val lo = percentile(hist, src.px.size, 0.005); val hi = percentile(hist, src.px.size, 0.995)
+        // stretch only part of the way: faded prints get their range back without crushing shadows
+        val lo = percentile(hist, src.px.size, 0.002) * 6 / 10; val hi = 255 - (255 - percentile(hist, src.px.size, 0.998)) * 6 / 10
         val st = if (hi - lo > 40) curve(wb, lo, hi) else wb
-        return sharpen(saturate(st, 1.15f), 0.4f)
+        return sharpen(saturate(st, 1.08f), 0.35f)
     }
 
     private fun percentile(hist: IntArray, n: Int, p: Double): Int {
@@ -370,14 +371,16 @@ object Ops {
         val aligned = listOf(ref) + sized.drop(1).map { shift(it, align(ref, it)) }
         val o = Img(tw, th)
         val k = aligned.size
+        // glare is judged on lightly blurred luma, so sensor noise doesn't decide the weights
+        val lum = aligned.map { f -> val bl = blur(f, 2); IntArray(tw * th) { luma(bl.px[it]) } }
         val ls = IntArray(k)
         for (i in 0 until tw * th) {
             var lmin = 255
-            for (f in 0 until k) { val l = luma(aligned[f].px[i]); ls[f] = l; if (l < lmin) lmin = l }
+            for (f in 0 until k) { val l = lum[f][i]; ls[f] = l; if (l < lmin) lmin = l }
             var wsum = 0f; var rr = 0f; var gg = 0f; var bb = 0f
             for (f in 0 until k) {
-                val over = (ls[f] - lmin - 10).coerceAtLeast(0)
-                val wt = exp(-over / 6f)
+                val over = (ls[f] - lmin - 3).coerceAtLeast(0)
+                val wt = exp(-over / 2.5f)
                 val c = aligned[f].px[i]
                 rr += r(c) * wt; gg += g(c) * wt; bb += b(c) * wt; wsum += wt
             }

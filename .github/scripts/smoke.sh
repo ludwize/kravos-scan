@@ -42,6 +42,27 @@ PY
   else echo "not found: $1" >> "$OUT/steps.txt"; fi
   sleep 3
 }
+# tap the first node whose text/desc starts with a prefix (scrolls down up to 3 times to find it)
+tap_prefix() {
+  for attempt in 0 1 2 3; do
+    dump
+    python3 - "$1" "$OUT/ui.xml" <<'PY' > "$OUT/tap.txt"
+import re, sys, xml.etree.ElementTree as ET
+pre, path = sys.argv[1], sys.argv[2]
+try:
+    root = ET.parse(path).getroot()
+except Exception:
+    sys.exit(0)
+for n in root.iter('node'):
+    t = n.get('text') or n.get('content-desc') or ''
+    if t.startswith(pre):
+        x1, y1, x2, y2 = map(int, re.findall(r'\d+', n.get('bounds'))); print((x1 + x2) // 2, (y1 + y2) // 2); break
+PY
+    if [ -s "$OUT/tap.txt" ]; then adb shell input tap $(cat "$OUT/tap.txt"); echo "tapped $1*" >> "$OUT/steps.txt"; sleep 4; return; fi
+    adb shell input swipe 160 450 160 150 400; sleep 2
+  done
+  echo "not found: $1*" >> "$OUT/steps.txt"
+}
 back() { adb shell input keyevent KEYCODE_BACK; sleep 2; }
 
 shot 01-empty
@@ -50,16 +71,7 @@ adb shell am start -n $PKG/.ui.MainActivity --ez kravos_smoke true > /dev/null 2
 sleep 10; shot 02-processing
 sleep 80; shot 03-library
 
-dump
-python3 - "$OUT/ui.xml" <<'PY' > "$OUT/tap.txt"
-import re, sys, xml.etree.ElementTree as ET
-root = ET.parse(sys.argv[1]).getroot()
-for n in root.iter('node'):
-    t = n.get('text') or n.get('content-desc') or ''
-    if t.startswith('Dokument '):
-        x1, y1, x2, y2 = map(int, re.findall(r'\d+', n.get('bounds'))); print((x1 + x2) // 2, y1 - 200); break
-PY
-[ -s "$OUT/tap.txt" ] && adb shell input tap $(cat "$OUT/tap.txt"); sleep 4
+tap_prefix "Dokument "
 shot 10-doc
 tap_text "Original"; sleep 6; shot 11-doc-original
 tap_text "Crno-belo"; sleep 6; shot 12-doc-bw
@@ -80,28 +92,10 @@ tap_text "Preuzimanja"; sleep 8; shot 21-exported
 back
 
 # photo doc
-dump
-python3 - "$OUT/ui.xml" <<'PY' > "$OUT/tap.txt"
-import re, sys, xml.etree.ElementTree as ET
-root = ET.parse(sys.argv[1]).getroot()
-for n in root.iter('node'):
-    t = n.get('text') or ''
-    if t.startswith('Fotografija '):
-        x1, y1, x2, y2 = map(int, re.findall(r'\d+', n.get('bounds'))); print((x1 + x2) // 2, y1 - 200); break
-PY
-[ -s "$OUT/tap.txt" ] && adb shell input tap $(cat "$OUT/tap.txt"); sleep 4
+tap_prefix "Fotografija "
 shot 30-photo
 back
-dump
-python3 - "$OUT/ui.xml" <<'PY' > "$OUT/tap.txt"
-import re, sys, xml.etree.ElementTree as ET
-root = ET.parse(sys.argv[1]).getroot()
-for n in root.iter('node'):
-    t = n.get('text') or ''
-    if t.startswith('Lična karta '):
-        x1, y1, x2, y2 = map(int, re.findall(r'\d+', n.get('bounds'))); print((x1 + x2) // 2, y1 - 200); break
-PY
-[ -s "$OUT/tap.txt" ] && adb shell input tap $(cat "$OUT/tap.txt"); sleep 4
+tap_prefix "Lična karta "
 shot 31-id
 back
 shot 32-library-again
