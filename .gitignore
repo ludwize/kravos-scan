@@ -1,0 +1,11 @@
+.gradle/
+build/
+app/build/
+local.properties
+*.iml
+.idea/
+.DS_Store
+*.jks
+*.keystore
+out/
+app/src/main/assets/tessdata/
