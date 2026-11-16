@@ -1,3 +1,1 @@
-> Task :app:compileDebugKotlin FAILED
-e: file:///home/runner/work/kravos-scan/kravos-scan/app/src/main/java/net/kravos/scan/qr/QrParse.kt:19:26 'title' hides member of supertype 'QrContent' and needs an 'override' modifier.
-BUILD FAILED in 1m 28s
+BUILD SUCCESSFUL in 58s
