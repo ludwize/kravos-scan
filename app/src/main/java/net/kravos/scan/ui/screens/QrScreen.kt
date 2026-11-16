@@ -201,7 +201,7 @@ fun QrScreen() {
                         Icon(if (warn) Icons.Filled.Warning else iconOf(c), null, Modifier.size(26.dp), tint = if (warn) Warn else MaterialTheme.colorScheme.primary)
                         Spacer(Modifier.width(12.dp))
                         Column(Modifier.weight(1f)) {
-                            Text(c.title, fontSize = 15.sp, fontWeight = FontWeight.Medium, maxLines = 1, overflow = TextOverflow.Ellipsis)
+                            Text(c.summary, fontSize = 15.sp, fontWeight = FontWeight.Medium, maxLines = 1, overflow = TextOverflow.Ellipsis)
                             Text(
                                 "${c.label} · ${SimpleDateFormat("d. MMM HH:mm", Locale.forLanguageTag("sr-Latn-RS")).format(Date(s.ts))}",
                                 fontSize = 12.sp, color = LocalPalette.current.dim,
@@ -218,7 +218,7 @@ fun QrScreen() {
         AlertDialog(
             onDismissRequest = { askDelete = null },
             title = { Text("Obrisati iz istorije?") },
-            text = { Text(s.content.title, maxLines = 3) },
+            text = { Text(s.content.summary, maxLines = 3) },
             confirmButton = { TextButton(onClick = { app.qr.delete(s.id); askDelete = null }) { Text("Obriši", color = MaterialTheme.colorScheme.error) } },
             dismissButton = { TextButton(onClick = { askDelete = null }) { Text("Otkaži") } },
         )

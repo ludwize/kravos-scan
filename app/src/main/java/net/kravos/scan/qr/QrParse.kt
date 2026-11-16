@@ -34,7 +34,7 @@ sealed class QrContent {
     }
 
     /** One-line summary for the history list. */
-    val title: String get() = when (this) {
+    val summary: String get() = when (this) {
         is Link -> check.host.ifEmpty { url }
         is Wifi -> ssid
         is Ips -> payee.lineSequence().first() + (amount?.let { " · $it ${currency ?: ""}".trimEnd() } ?: "")
