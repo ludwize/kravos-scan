@@ -29,6 +29,8 @@ class App : Application(), ImageLoaderFactory {
         private set
     lateinit var store: Store
         private set
+    lateinit var qr: net.kravos.scan.qr.QrStore
+        private set
 
     val scope = CoroutineScope(SupervisorJob() + Dispatchers.Default)
 
@@ -49,6 +51,8 @@ class App : Application(), ImageLoaderFactory {
         Http.init(this)
         prefs = Prefs(this)
         store = Store(this, prefs)
+        qr = net.kravos.scan.qr.QrStore(this)
+        getExternalFilesDir(null) // created up front so the CI smoke test can push a QR picture into it
         store.onGeometryChanged = { id -> store.get(id)?.let { autoOcr(it) } }
     }
 

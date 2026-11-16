@@ -90,6 +90,9 @@ dependencies {
     implementation("androidx.exifinterface:exifinterface:1.3.7")
 
     implementation("com.google.android.gms:play-services-mlkit-document-scanner:16.0.0")
+    implementation("com.google.android.gms:play-services-code-scanner:16.1.0")
+    implementation("com.google.android.gms:play-services-base:18.5.0")
+    implementation("com.google.mlkit:barcode-scanning:17.3.0")
     implementation("cz.adaptech.tesseract4android:tesseract4android-openmp:4.9.0")
 
     implementation("com.squareup.okhttp3:okhttp:4.12.0")

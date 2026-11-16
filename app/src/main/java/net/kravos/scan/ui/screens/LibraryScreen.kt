@@ -29,6 +29,7 @@ import androidx.compose.material.icons.filled.Close
 import androidx.compose.material.icons.filled.Description
 import androidx.compose.material.icons.filled.DocumentScanner
 import androidx.compose.material.icons.filled.PhotoLibrary
+import androidx.compose.material.icons.filled.QrCodeScanner
 import androidx.compose.material.icons.filled.Search
 import androidx.compose.material.icons.filled.Settings
 import androidx.compose.material.icons.filled.TextSnippet
@@ -138,12 +139,13 @@ fun LibraryScreen(bannerShown: Boolean) {
         }
         // scan actions
         Row(
-            Modifier.fillMaxWidth().background(MaterialTheme.colorScheme.surfaceContainerLow).navigationBarsPadding().padding(horizontal = 8.dp, vertical = 10.dp),
+            Modifier.fillMaxWidth().background(MaterialTheme.colorScheme.surfaceContainerLow).navigationBarsPadding().padding(horizontal = 4.dp, vertical = 10.dp),
             horizontalArrangement = Arrangement.SpaceEvenly,
         ) {
             BigAction(Icons.Filled.DocumentScanner, "Dokument", primary = true) { scan.scan(ScanJob.NewDoc) }
             BigAction(Icons.Filled.AutoAwesome, "Foto") { if (app.prefs.photoTipSeen) scan.scan(ScanJob.Photo()) else photoTip = true }
             BigAction(Icons.Filled.Badge, "Lična karta") { askId = true }
+            BigAction(Icons.Filled.QrCodeScanner, "QR kod") { nav.go(Route.Qr) }
             BigAction(Icons.Filled.PhotoLibrary, "Uvoz") { scan.importImages() }
         }
     }
@@ -261,15 +263,15 @@ fun kindIcon(k: DocKind): ImageVector = when (k) {
 }
 
 @Composable
-private fun BigAction(icon: ImageVector, label: String, primary: Boolean = false, onClick: () -> Unit) {
+private fun androidx.compose.foundation.layout.RowScope.BigAction(icon: ImageVector, label: String, primary: Boolean = false, onClick: () -> Unit) {
     val bg = if (primary) MaterialTheme.colorScheme.primary else MaterialTheme.colorScheme.surfaceContainerHighest
     val fg = if (primary) MaterialTheme.colorScheme.onPrimary else MaterialTheme.colorScheme.onSurface
-    Column(horizontalAlignment = Alignment.CenterHorizontally, modifier = Modifier.clip(RoundedCornerShape(14.dp)).combinedClickableCompat(onClick).padding(4.dp)) {
-        Box(Modifier.size(width = 64.dp, height = 48.dp).clip(RoundedCornerShape(16.dp)).background(bg), contentAlignment = Alignment.Center) {
+    Column(horizontalAlignment = Alignment.CenterHorizontally, modifier = Modifier.weight(1f).clip(RoundedCornerShape(14.dp)).combinedClickableCompat(onClick).padding(vertical = 4.dp, horizontal = 2.dp)) {
+        Box(Modifier.size(width = 56.dp, height = 46.dp).clip(RoundedCornerShape(16.dp)).background(bg), contentAlignment = Alignment.Center) {
             Icon(icon, label, tint = fg)
         }
         Spacer(Modifier.height(4.dp))
-        Text(label, fontSize = 12.sp, fontWeight = FontWeight.Medium)
+        Text(label, fontSize = 11.sp, fontWeight = FontWeight.Medium, maxLines = 1, overflow = TextOverflow.Ellipsis)
     }
 }
 

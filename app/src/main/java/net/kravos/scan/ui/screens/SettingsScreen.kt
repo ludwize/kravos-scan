@@ -74,6 +74,7 @@ fun SettingsScreen(release: Release?, onCheckUpdate: () -> Unit) {
     var quality by remember { mutableStateOf(app.prefs.quality) }
     var autoOcr by remember { mutableStateOf(app.prefs.autoOcr) }
     var langs by remember { mutableStateOf(app.prefs.ocrLangs) }
+    var qrAuto by remember { mutableStateOf(app.prefs.qrAutoOpen) }
     var sigVer by remember { mutableIntStateOf(0) }
 
     @Composable
@@ -159,6 +160,19 @@ fun SettingsScreen(release: Release?, onCheckUpdate: () -> Unit) {
                     }
                     if (!Ocr.available(ctx)) Text("OCR podaci nedostaju u ovoj verziji.", Modifier.padding(14.dp), fontSize = 12.sp, color = Color(0xFFFF6B6B))
                     Text("Manje jezika = brže prepoznavanje.", Modifier.padding(horizontal = 14.dp, vertical = 4.dp), fontSize = 12.sp, color = pal.dim)
+                    Spacer(Modifier.height(8.dp))
+                }
+            }
+            item {
+                KCard {
+                    CardTitle("QR kodovi")
+                    Row(Modifier.fillMaxWidth().padding(horizontal = 14.dp, vertical = 4.dp), verticalAlignment = Alignment.CenterVertically) {
+                        Column(Modifier.weight(1f)) {
+                            Text("Odmah otvori link", fontSize = 14.sp)
+                            Text("Samo ako link nema znakove upozorenja; sumnjivi linkovi uvek prvo pokažu gde vode", fontSize = 12.sp, color = pal.dim, lineHeight = 16.sp)
+                        }
+                        Switch(checked = qrAuto, onCheckedChange = { qrAuto = it; app.prefs.qrAutoOpen = it })
+                    }
                     Spacer(Modifier.height(8.dp))
                 }
             }

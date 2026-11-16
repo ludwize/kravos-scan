@@ -63,6 +63,11 @@ class Prefs(context: Context) {
             ?.ifEmpty { null } ?: OcrLang.entries.toSet()
         set(v) = sp.edit().putStringSet("ocrLangs", v.map { it.name }.toSet()).apply()
 
+    /** Open safe-looking links right after scanning (links with warnings always show the result first). */
+    var qrAutoOpen: Boolean
+        get() = sp.getBoolean("qrAutoOpen", false)
+        set(v) = sp.edit().putBoolean("qrAutoOpen", v).apply()
+
     var photoTipSeen: Boolean
         get() = sp.getBoolean("photoTip", false)
         set(v) = sp.edit().putBoolean("photoTip", v).apply()

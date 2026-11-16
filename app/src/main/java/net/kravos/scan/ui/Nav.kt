@@ -12,6 +12,7 @@ sealed class Route {
     /** [then] = document to return to and place the signature on. */
     data class Signature(val thenDocId: String? = null) : Route()
     data object Settings : Route()
+    data object Qr : Route()
 }
 
 class Navigator {

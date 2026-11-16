@@ -109,6 +109,27 @@ tap_text "Lična karta"; sleep 2; shot 60-id-dialog
 tap_text "Otkaži"
 tap_text "Dokument"; sleep 6; shot 61-scanner
 
+# ---- QR: a phishing-style link as a real picture (decoded by the bundled ML Kit model) + texts as if scanned
+python3 -m pip install -q --break-system-packages "qrcode[pil]" > "$OUT/pip.txt" 2>&1 || python3 -m pip install -q --user "qrcode[pil]" >> "$OUT/pip.txt" 2>&1
+python3 - <<'PY'
+import qrcode
+qrcode.make("https://www.bancaintesa.rs@login-verify.example.com/potvrda").save("qr.png")
+open("qr.txt", "w").write(
+    "WIFI:T:WPA;S:Vikendica;P:tajna123;;\n"
+    "K:PR|V:01|C:1|R:845000000040484987|N:JKP INFOSTAN TEHNOLOGIJE\\nBeograd|I:RSD3596,13|SF:189|S:Racun za oktobar|RO:97163220000111111111000\n"
+    "https://www.rts.rs/vesti\n")
+PY
+D=/sdcard/Android/data/$PKG/files
+adb push qr.png $D/qr.png > "$OUT/qr-push.txt" 2>&1
+adb push qr.txt $D/qr.txt >> "$OUT/qr-push.txt" 2>&1
+adb shell am start -n $PKG/.ui.MainActivity --ez kravos_smoke_qr true > /dev/null 2>&1
+sleep 10; shot 70-qr-phish
+back; shot 71-qr-history
+tap_prefix "Vikendica"; shot 72-qr-wifi; back
+tap_prefix "JKP INFOSTAN"; shot 73-qr-ips; back
+tap_prefix "www.rts.rs"; shot 74-qr-link; back
+back; shot 75-library
+
 # pull the exported PDF for inspection
 adb shell ls "/sdcard/Download/Kravos Sken/" > "$OUT/downloads.txt" 2>&1
 F=$(adb shell ls "/sdcard/Download/Kravos\ Sken/" 2>/dev/null | tr -d '\r' | grep pdf | head -1)

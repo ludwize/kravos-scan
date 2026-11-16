@@ -94,6 +94,28 @@ class MainActivity : ComponentActivity() {
     private fun handleIntent(i: Intent?) {
         i ?: return
         val app = application as App
+        // CI smoke test: codes as if scanned (qr.txt, one per line) and a QR picture (qr.png) pushed into the app's external files dir
+        if (i.getBooleanExtra("kravos_smoke_qr", false)) {
+            app.scope.launch {
+                val dir = getExternalFilesDir(null)
+                var last: net.kravos.scan.qr.QrScan? = null
+                runCatching { java.io.File(dir, "qr.txt").readLines() }.getOrDefault(emptyList()).filter { it.isNotBlank() }.forEach {
+                    last = app.qr.add(it.replace("\\n", "\n"), com.google.mlkit.vision.barcode.common.Barcode.FORMAT_QR_CODE)
+                }
+                val png = java.io.File(dir, "qr.png")
+                if (png.exists()) {
+                    val codes = runCatching { app.qr.decodeImage(android.net.Uri.fromFile(png)) }
+                        .onFailure { android.util.Log.e(App.TAG, "smoke QR decode failed", it) }.getOrDefault(emptyList())
+                    android.util.Log.i(App.TAG, "smoke QR decoded ${codes.size}: ${codes.joinToString { it.first }}")
+                    codes.forEach { (raw, fmt) -> last = app.qr.add(raw, fmt) }
+                }
+                runOnUiThread {
+                    net.kravos.scan.ui.screens.PendingQr.id = last?.id
+                    nav.home(); nav.go(Route.Qr)
+                }
+            }
+            return
+        }
         if (i.getBooleanExtra("kravos_smoke", false)) {
             app.scope.launch { SmokeSamples.create(app) }
             return
@@ -216,6 +238,7 @@ private fun Root(app: App) {
                             is Route.Document -> DocumentScreen(dest.id)
                             is Route.Crop -> CropScreen(dest.docId, dest.pageId)
                             is Route.Signature -> SignatureScreen(dest.thenDocId)
+                            Route.Qr -> net.kravos.scan.ui.screens.QrScreen()
                             Route.Settings -> SettingsScreen(release) { scope.launch { release = Updater.latest() } }
                         }
                     }
