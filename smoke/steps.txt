@@ -39,3 +39,12 @@ shot 60-id-dialog
 tapped Otkaži
 tapped Dokument
 shot 61-scanner
+shot 70-qr-phish
+shot 71-qr-history
+tapped Vikendica*
+shot 72-qr-wifi
+tapped JKP INFOSTAN*
+shot 73-qr-ips
+tapped www.rts.rs*
+shot 74-qr-link
+shot 75-library

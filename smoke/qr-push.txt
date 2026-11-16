@@ -1,0 +1,2 @@
+qr.png: 1 file pushed, 0 skipped. 19.1 MB/s (878 bytes in 0.000s)
+qr.txt: 1 file pushed, 0 skipped. 4.0 MB/s (198 bytes in 0.000s)

@@ -1,213 +1,258 @@
-219:10-21 13:25:27.811   519  2077 V SplashScreenExceptionList: SplashScreen checking exception for package net.kravos.scan (target sdk:35) -> false
-242:10-21 13:25:27.825   835   867 V WindowManagerShell: Transition requested: android.os.BinderProxy@b6680d9 TransitionRequestInfo { type = OPEN, triggerTask = TaskInfo{userId=0 taskId=8 displayId=0 isRunning=true baseIntent=Intent { flg=0x10000000 cmp=net.kravos.scan/.ui.MainActivity } baseActivity=ComponentInfo{net.kravos.scan/net.kravos.scan.ui.MainActivity} topActivity=ComponentInfo{net.kravos.scan/net.kravos.scan.ui.MainActivity} origActivity=null realActivity=ComponentInfo{net.kravos.scan/net.kravos.scan.ui.MainActivity} numActivities=1 lastActiveTime=43946 supportsMultiWindow=true resizeMode=1 isResizeable=true minWidth=-1 minHeight=-1 defaultMinSize=220 token=WCT{android.window.IWindowContainerToken$Stub$Proxy@6bd2a9e} topActivityType=1 pictureInPictureParams=null shouldDockBigOverlays=false launchIntoPipHostTaskId=-1 lastParentTaskIdBeforePip=-1 displayCutoutSafeInsets=null topActivityInfo=ActivityInfo{5bb797f net.kravos.scan.ui.MainActivity} launchCookies=[] positionInParent=Point(0, 0) parentTaskId=-1 isFocused=false isVisible=false isVisibleRequested=false isSleeping=false topActivityInSizeCompat=false topActivityEligibleForLetterboxEducation= false topActivityLetterboxed= false isFromDoubleTap= false topActivityLetterboxVerticalPosition= -1 topActivityLetterboxHorizontalPosition= -1 topActivityLetterboxWidth=-1 topActivityLetterboxHeight=-1 locusId=null displayAreaFeatureId=1 cameraCompatControlState=hidden}, remoteTransition = null, displayChange = null }
-293:10-21 13:25:27.874   519  2077 I ActivityTaskManager: START u0 {flg=0x10000000 cmp=net.kravos.scan/.ui.MainActivity} with LAUNCH_SINGLE_TASK from uid 2000 (BAL_ALLOW_PERMISSION) result code=0
-305:10-21 13:25:27.902   519   550 I ActivityManager: Start proc 2884:net.kravos.scan/u0a192 for next-top-activity {net.kravos.scan/net.kravos.scan.ui.MainActivity}
-345:10-21 13:25:28.022   519  1751 D CoreBackPreview: Window{1e9e03e u0 Splash Screen net.kravos.scan}: Setting back callback OnBackInvokedCallbackInfo{mCallback=android.window.IOnBackInvokedCallback$Stub$Proxy@9f3d57b, mPriority=0, mIsAnimationCallback=false}
-403:10-21 13:25:28.128  2884  2884 I net.kravos.scan: Using CollectorTypeCC GC.
-405:10-21 13:25:28.128  2884  2884 W net.kravos.scan: Unexpected CPU variant for x86: x86_64.
-406:10-21 13:25:28.128  2884  2884 W net.kravos.scan: Known variants: atom, sandybridge, silvermont, goldmont, goldmont-plus, tremont, kabylake, default
-407:10-21 13:25:28.129  2884  2884 E net.kravos.scan: Not starting debugger since process cannot load the jdwp agent.
-449:10-21 13:25:28.214  2884  2884 D nativeloader: Configuring clns-6 for other apk /data/app/~~_tflxNzFfETjOrkqVLQc6Q==/net.kravos.scan-OaUKXbSNrnmStYw-wEKIEg==/base.apk. target_sdk_version=35, uses_libraries=, library_path=/data/app/~~_tflxNzFfETjOrkqVLQc6Q==/net.kravos.scan-OaUKXbSNrnmStYw-wEKIEg==/lib/x86_64:/data/app/~~_tflxNzFfETjOrkqVLQc6Q==/net.kravos.scan-OaUKXbSNrnmStYw-wEKIEg==/base.apk!/lib/x86_64, permitted_path=/data:/mnt/expand:/data/user/0/net.kravos.scan
-508:10-21 13:25:28.317  2884  2884 V GraphicsEnvironment: ANGLE GameManagerService for net.kravos.scan: false
-509:10-21 13:25:28.317  2884  2884 V GraphicsEnvironment: net.kravos.scan is not listed in per-application setting
-530:10-21 13:25:28.350  1056  1056 D CarrierSvcBindHelper: onPackageAdded: net.kravos.scan
-542:10-21 13:25:28.383  1056  1337 D ImsResolver: maybeAddedImsService, packageName: net.kravos.scan
-610:10-21 13:25:28.547   519   537 V WindowManager: Sent Transition #6 createdAt=10-21 13:25:27.773 via request=TransitionRequestInfo { type = OPEN, triggerTask = TaskInfo{userId=0 taskId=8 displayId=0 isRunning=true baseIntent=Intent { flg=0x10000000 cmp=net.kravos.scan/.ui.MainActivity } baseActivity=ComponentInfo{net.kravos.scan/net.kravos.scan.ui.MainActivity} topActivity=ComponentInfo{net.kravos.scan/net.kravos.scan.ui.MainActivity} origActivity=null realActivity=ComponentInfo{net.kravos.scan/net.kravos.scan.ui.MainActivity} numActivities=1 lastActiveTime=43946 supportsMultiWindow=true resizeMode=1 isResizeable=true minWidth=-1 minHeight=-1 defaultMinSize=220 token=WCT{RemoteToken{13582bd Task{59f3d53 #8 type=standard A=10192:net.kravos.scan}}} topActivityType=1 pictureInPictureParams=null shouldDockBigOverlays=false launchIntoPipHostTaskId=-1 lastParentTaskIdBeforePip=-1 displayCutoutSafeInsets=null topActivityInfo=ActivityInfo{ccc70b2 net.kravos.scan.ui.MainActivity} launchCookies=[] positionInParent=Point(0, 0) parentTaskId=-1 isFocused=false isVisible=false isVisibleRequested=false isSleeping=false topActivityInSizeCompat=false topActivityEligibleForLetterboxEducation= false topActivityLetterboxed= false isFromDoubleTap= false topActivityLetterboxVerticalPosition= -1 topActivityLetterboxHorizontalPosition= -1 topActivityLetterboxWidth=-1 topActivityLetterboxHeight=-1 locusId=null displayAreaFeatureId=1 cameraCompatControlState=hidden}, remoteTransition = null, displayChange = null }
-612:10-21 13:25:28.547   519   537 V WindowManager:     info={id=6 t=OPEN f=0x0 trk=0 r=[0@Point(0, 0)] c=[{WCT{RemoteToken{13582bd Task{59f3d53 #8 type=standard A=10192:net.kravos.scan}}} m=OPEN f=NONE leash=Surface(name=Task=8)/@0xc9d7da4 sb=Rect(0, 0 - 320, 640) eb=Rect(0, 0 - 320, 640) d=0},{WCT{RemoteToken{90e6803 Task{fb8cd5c #1 type=home}}} m=TO_BACK f=SHOW_WALLPAPER leash=Surface(name=Task=1)/@0x78c6b73 sb=Rect(0, 0 - 320, 640) eb=Rect(0, 0 - 320, 640) d=0}]}
-727:10-21 13:25:28.757   519   804 I SdkSandboxManager: No SDKs used. Skipping SDK data reconcilation for CallingInfo{mUid=10192, mPackageName='net.kravos.scan, mAppProcessToken='null'}
-728:10-21 13:25:28.757   519  2085 D CoreBackPreview: Window{c2ac1c2 u0 net.kravos.scan/net.kravos.scan.ui.MainActivity}: Setting back callback OnBackInvokedCallbackInfo{mCallback=android.window.IOnBackInvokedCallback$Stub$Proxy@65398ad, mPriority=0, mIsAnimationCallback=false}
-1389:10-21 13:25:29.639   519  2047 I WindowManager: finishDrawing of relaunch: Window{c2ac1c2 u0 net.kravos.scan/net.kravos.scan.ui.MainActivity} 1052ms
-1404:10-21 13:25:29.667   519  2075 D CoreBackPreview: Window{c2ac1c2 u0 net.kravos.scan/net.kravos.scan.ui.MainActivity}: Setting back callback null
-1405:10-21 13:25:29.667   519  2081 W InputManager-JNI: Input channel object 'c2ac1c2 net.kravos.scan/net.kravos.scan.ui.MainActivity (client)' was disposed without first being removed with the input manager!
-1443:10-21 13:25:29.711   519   537 I ActivityTaskManager: Displayed net.kravos.scan/.ui.MainActivity for user 0: +1s883ms
-1572:10-21 13:25:29.917   519  1917 D CoreBackPreview: Window{fe3ed4f u0 net.kravos.scan/net.kravos.scan.ui.MainActivity}: Setting back callback OnBackInvokedCallbackInfo{mCallback=android.window.IOnBackInvokedCallback$Stub$Proxy@61b6617, mPriority=0, mIsAnimationCallback=false}
-1611:10-21 13:25:30.012   519  2080 I ImeTracker: net.kravos.scan:ab92709: onRequestHide at ORIGIN_SERVER_HIDE_INPUT reason HIDE_UNSPECIFIED_WINDOW
-1612:10-21 13:25:30.012   519  2080 I ImeTracker: net.kravos.scan:ab92709: onCancelled at PHASE_SERVER_SHOULD_HIDE
-1615:10-21 13:25:30.019  1552  1552 I GoogleInputMethodService: GoogleInputMethodService.onStartInput():1877 onStartInput(EditorInfo{inputType=0x0(NULL) imeOptions=0x0 privateImeOptions=null actionName=UNSPECIFIED actionLabel=null actionId=0 initialSelStart=-1 initialSelEnd=-1 initialCapsMode=0x0 hintText=null label=null packageName=net.kravos.scan fieldId=0 fieldName=null extras=null}, false)
-1679:10-21 13:25:30.113   519   592 W InputManager-JNI: Input channel object '1e9e03e Splash Screen net.kravos.scan (client)' was disposed without first being removed with the input manager!
-1681:10-21 13:25:30.114   519  2084 D CoreBackPreview: Window{1e9e03e u0 Splash Screen net.kravos.scan EXITING}: Setting back callback null
-3030:10-21 13:25:33.238   836   836 I SafetyLabelChangedBroadcastReceiver: received broadcast packageName: net.kravos.scan, current user: UserHandle{0}, packageChangeEvent: NEW_INSTALL, intent user: UserHandle{0}
-3247:10-21 13:25:33.687  1056  1056 D CarrierSvcBindHelper: onPackageModified: net.kravos.scan
-3263:10-21 13:25:33.730  1056  1337 D ImsResolver: maybeAddedImsService, packageName: net.kravos.scan
-3961:10-21 13:25:34.576  2884  3573 D ProfileInstaller: Installing profile for net.kravos.scan
-4144:10-21 13:25:34.888  1665  1665 I AiAiEcho: AppFetcherImplV2 updateApps package:[net.kravos.scan], userId:[0], reason:[package is added.].
-4778:10-21 13:25:37.028   835   867 D WindowManagerShell: onActivityRestartAttempt: ComponentInfo{net.kravos.scan/net.kravos.scan.ui.MainActivity}
-4801:10-21 13:25:37.089   519  2080 I ActivityTaskManager: START u0 {flg=0x10000000 cmp=net.kravos.scan/.ui.MainActivity (has extras)} with LAUNCH_SINGLE_TASK from uid 2000 (BAL_ALLOW_PERMISSION) result code=3
-5503:10-21 13:25:38.472  2884  2905 W net.kravos.scan: Cleared Reference was only reachable from finalizer (only reported once)
-6034:10-21 13:25:39.874  1665  1665 I AiAiEcho: AppFetcherImpl onPackageChanged net.kravos.scan.
-6039:10-21 13:25:39.881  1665  2849 I AiAiEcho: AppIndexer Package:[net.kravos.scan] UserProfile:[0] Enabled:[true].
-6040:10-21 13:25:39.881  1665  2849 I AiAiEcho: AppFetcherImplV2 updateApps package:[net.kravos.scan], userId:[0], reason:[package is updated.].
-6768:10-21 13:25:41.453  2884  2905 I net.kravos.scan: Background concurrent copying GC freed 300(100KB) AllocSpace objects, 5(74MB) LOS objects, 49% free, 19MB/38MB, paused 101us,11us total 267.799ms
-6864:10-21 13:25:41.931  2884  2905 I net.kravos.scan: Background concurrent copying GC freed 213(40KB) AllocSpace objects, 3(15MB) LOS objects, 49% free, 23MB/46MB, paused 58us,29us total 160.148ms
-7102:10-21 13:25:42.605  2884  2905 I net.kravos.scan: Background concurrent copying GC freed 31(32KB) AllocSpace objects, 6(13MB) LOS objects, 37% free, 40MB/64MB, paused 1.756ms,20us total 134.706ms
-7118:10-21 13:25:42.702  2884  3197 I Tesseract(native): Initialized Tesseract API with language=srp+srp_latn+eng
-7287:10-21 13:25:43.139  1464  3094 I BlockstoreStorage: Clearing Blockstore Data for package net.kravos.scan [CONTEXT service_id=258 ]
-7463:10-21 13:25:43.421  2884  2905 I net.kravos.scan: Background concurrent copying GC freed 13(32KB) AllocSpace objects, 3(18MB) LOS objects, 31% free, 52MB/76MB, paused 37us,362us total 136.116ms
-7866:10-21 13:25:45.007  2884  2905 I net.kravos.scan: Background young concurrent copying GC freed 1190(140KB) AllocSpace objects, 2(40KB) LOS objects, 0% free, 76MB/76MB, paused 30us,37us total 104.900ms
-7977:10-21 13:25:45.290  2884  2905 I net.kravos.scan: Background concurrent copying GC freed 201(39KB) AllocSpace objects, 8(48MB) LOS objects, 41% free, 34MB/58MB, paused 1.539ms,48us total 282.379ms
-8412:10-21 13:25:47.221  2884  2905 I net.kravos.scan: Background young concurrent copying GC freed 3515(277KB) AllocSpace objects, 6(12MB) LOS objects, 17% free, 48MB/58MB, paused 51.952ms,10us total 214.043ms
-8501:10-21 13:25:47.642  2884  2905 I net.kravos.scan: Background concurrent copying GC freed 2749(181KB) AllocSpace objects, 11(47MB) LOS objects, 50% free, 20MB/40MB, paused 3.856ms,84us total 237.073ms
-8542:10-21 13:25:47.786  2884  2905 I net.kravos.scan: Background young concurrent copying GC freed 1(31KB) AllocSpace objects, 0(0B) LOS objects, 0% free, 59MB/59MB, paused 24us,13us total 107.215ms
-8571:10-21 13:25:47.927  2884  2905 I net.kravos.scan: Background concurrent copying GC freed 35(32KB) AllocSpace objects, 3(11MB) LOS objects, 32% free, 50MB/74MB, paused 9.102ms,8us total 127.451ms
-9664:10-21 13:25:50.449  2884  3197 I KravosScan: OCR r_eeb8d79d_140592.jpg: 389 chars, 61 words, langs=[srp, srp_latn, eng]
-9691:10-21 13:25:50.714  2884  2905 I net.kravos.scan: Background concurrent copying GC freed 1984(106KB) AllocSpace objects, 2(66MB) LOS objects, 26% free, 66MB/90MB, paused 28us,17us total 122.621ms
-10565:10-21 13:25:52.532  2884  3932 I Tesseract(native): Initialized Tesseract API with language=srp+srp_latn+eng
-15861:10-21 13:26:00.888  2884  3932 I KravosScan: OCR r_fe13a695_148158.jpg: 202 chars, 17 words, langs=[srp, srp_latn, eng]
-40538:10-21 13:27:07.901  5779  5779 D AndroidRuntime: >>>>>> START com.android.internal.os.RuntimeInit uid 2000 <<<<<<
-40539:10-21 13:27:07.921  5779  5779 I AndroidRuntime: Using default boot image
-40540:10-21 13:27:07.921  5779  5779 I AndroidRuntime: Leaving lock profiling enabled
-40555:10-21 13:27:08.109  5779  5779 D AndroidRuntime: Calling main entry com.android.commands.uiautomator.Launcher
-40656:10-21 13:27:09.177  5779  5779 D AndroidRuntime: Shutting down VM
-40724:10-21 13:27:14.298  5813  5813 D AndroidRuntime: >>>>>> START com.android.internal.os.RuntimeInit uid 2000 <<<<<<
-40725:10-21 13:27:14.302  5813  5813 I AndroidRuntime: Using default boot image
-40726:10-21 13:27:14.302  5813  5813 I AndroidRuntime: Leaving lock profiling enabled
-40742:10-21 13:27:14.387  5813  5813 D AndroidRuntime: Calling main entry com.android.commands.uiautomator.Launcher
-40792:10-21 13:27:15.422  5813  5813 D AndroidRuntime: Shutting down VM
-41895:10-21 13:27:25.555  5901  5901 D AndroidRuntime: >>>>>> START com.android.internal.os.RuntimeInit uid 2000 <<<<<<
-41896:10-21 13:27:25.559  5901  5901 I AndroidRuntime: Using default boot image
-41897:10-21 13:27:25.559  5901  5901 I AndroidRuntime: Leaving lock profiling enabled
-41912:10-21 13:27:25.675  5901  5901 D AndroidRuntime: Calling main entry com.android.commands.uiautomator.Launcher
-42086:10-21 13:27:26.719  5901  5901 D AndroidRuntime: Shutting down VM
-43820:10-21 13:27:36.928  6005  6005 D AndroidRuntime: >>>>>> START com.android.internal.os.RuntimeInit uid 2000 <<<<<<
-43821:10-21 13:27:36.932  6005  6005 I AndroidRuntime: Using default boot image
-43822:10-21 13:27:36.932  6005  6005 I AndroidRuntime: Leaving lock profiling enabled
-43835:10-21 13:27:37.012  6005  6005 D AndroidRuntime: Calling main entry com.android.commands.uiautomator.Launcher
-43900:10-21 13:27:38.040  6005  6005 D AndroidRuntime: Shutting down VM
-44258:10-21 13:27:48.222  6066  6066 D AndroidRuntime: >>>>>> START com.android.internal.os.RuntimeInit uid 2000 <<<<<<
-44259:10-21 13:27:48.226  6066  6066 I AndroidRuntime: Using default boot image
-44260:10-21 13:27:48.226  6066  6066 I AndroidRuntime: Leaving lock profiling enabled
-44273:10-21 13:27:48.306  6066  6066 D AndroidRuntime: Calling main entry com.android.commands.uiautomator.Launcher
-44335:10-21 13:27:49.343  6066  6066 D AndroidRuntime: Shutting down VM
-44407:10-21 13:27:50.259   519  1000 D CoreBackPreview: Window{abc285f u0 net.kravos.scan/net.kravos.scan.ui.MainActivity}: Setting back callback OnBackInvokedCallbackInfo{mCallback=android.window.IOnBackInvokedCallback$Stub$Proxy@924eb7b, mPriority=0, mIsAnimationCallback=false}
-44408:10-21 13:27:50.427   519  1000 I ImeTracker: net.kravos.scan:abcd6a92: onRequestHide at ORIGIN_SERVER_HIDE_INPUT reason HIDE_UNSPECIFIED_WINDOW
-44409:10-21 13:27:50.428   519  1000 I ImeTracker: net.kravos.scan:abcd6a92: onCancelled at PHASE_SERVER_SHOULD_HIDE
-44412:10-21 13:27:50.431  1552  1552 I GoogleInputMethodService: GoogleInputMethodService.onStartInput():1877 onStartInput(EditorInfo{inputType=0x0(NULL) imeOptions=0x0 privateImeOptions=null actionName=UNSPECIFIED actionLabel=null actionId=0 initialSelStart=-1 initialSelEnd=-1 initialCapsMode=0x0 hintText=null label=null packageName=net.kravos.scan fieldId=0 fieldName=null extras=null}, false)
-44459:10-21 13:27:56.406   519  1000 D CoreBackPreview: Window{abc285f u0 net.kravos.scan/net.kravos.scan.ui.MainActivity}: Setting back callback null
-44460:10-21 13:27:56.410   519  1927 W InputManager-JNI: Input channel object 'abc285f net.kravos.scan/net.kravos.scan.ui.MainActivity (client)' was disposed without first being removed with the input manager!
-44462:10-21 13:27:56.440   519  1927 I ImeTracker: net.kravos.scan:c34a6008: onRequestHide at ORIGIN_SERVER_HIDE_INPUT reason HIDE_UNSPECIFIED_WINDOW
-44463:10-21 13:27:56.440   519  1927 I ImeTracker: net.kravos.scan:c34a6008: onCancelled at PHASE_SERVER_SHOULD_HIDE
-44466:10-21 13:27:56.442  1552  1552 I GoogleInputMethodService: GoogleInputMethodService.onStartInput():1877 onStartInput(EditorInfo{inputType=0x0(NULL) imeOptions=0x0 privateImeOptions=null actionName=UNSPECIFIED actionLabel=null actionId=0 initialSelStart=-1 initialSelEnd=-1 initialCapsMode=0x0 hintText=null label=null packageName=net.kravos.scan fieldId=0 fieldName=null extras=null}, false)
-44497:10-21 13:27:58.483  6105  6105 D AndroidRuntime: >>>>>> START com.android.internal.os.RuntimeInit uid 2000 <<<<<<
-44498:10-21 13:27:58.487  6105  6105 I AndroidRuntime: Using default boot image
-44499:10-21 13:27:58.487  6105  6105 I AndroidRuntime: Leaving lock profiling enabled
-44512:10-21 13:27:58.562  6105  6105 D AndroidRuntime: Calling main entry com.android.commands.uiautomator.Launcher
-44575:10-21 13:27:59.599  6105  6105 D AndroidRuntime: Shutting down VM
-44656:10-21 13:28:00.509  2884  2899 I net.kravos.scan: Compiler allocated 4761KB to compile void C2.d5.b(java.lang.String, P.p, int)
-44833:10-21 13:28:08.738  6147  6147 D AndroidRuntime: >>>>>> START com.android.internal.os.RuntimeInit uid 2000 <<<<<<
-44834:10-21 13:28:08.742  6147  6147 I AndroidRuntime: Using default boot image
-44835:10-21 13:28:08.742  6147  6147 I AndroidRuntime: Leaving lock profiling enabled
-44848:10-21 13:28:08.818  6147  6147 D AndroidRuntime: Calling main entry com.android.commands.uiautomator.Launcher
-44952:10-21 13:28:09.856  6147  6147 D AndroidRuntime: Shutting down VM
-45020:10-21 13:28:18.834  6202  6202 D AndroidRuntime: >>>>>> START com.android.internal.os.RuntimeInit uid 2000 <<<<<<
-45021:10-21 13:28:18.838  6202  6202 I AndroidRuntime: Using default boot image
-45022:10-21 13:28:18.838  6202  6202 I AndroidRuntime: Leaving lock profiling enabled
-45035:10-21 13:28:18.916  6202  6202 D AndroidRuntime: Calling main entry com.android.commands.uiautomator.Launcher
-45095:10-21 13:28:19.937  6202  6202 D AndroidRuntime: Shutting down VM
-45225:10-21 13:28:28.037  6240  6240 D AndroidRuntime: >>>>>> START com.android.internal.os.RuntimeInit uid 2000 <<<<<<
-45226:10-21 13:28:28.041  6240  6240 I AndroidRuntime: Using default boot image
-45227:10-21 13:28:28.041  6240  6240 I AndroidRuntime: Leaving lock profiling enabled
-45242:10-21 13:28:28.125  6240  6240 D AndroidRuntime: Calling main entry com.android.commands.uiautomator.Launcher
-45297:10-21 13:28:29.151  6240  6240 D AndroidRuntime: Shutting down VM
-45412:10-21 13:28:30.409  2884  2905 I net.kravos.scan: Background concurrent copying GC freed 9986(408KB) AllocSpace objects, 5(74MB) LOS objects, 40% free, 35MB/59MB, paused 83us,21us total 190.820ms
-45520:10-21 13:28:31.067   519   537 V WindowManager:     info={id=8 t=TO_FRONT f=0x80 trk=0 r=[0@Point(0, 0)] c=[{WCT{RemoteToken{90e6803 Task{fb8cd5c #1 type=home}}} m=TO_FRONT f=SHOW_WALLPAPER|MOVE_TO_TOP leash=Surface(name=Task=1)/@0x78c6b73 sb=Rect(0, 0 - 320, 640) eb=Rect(0, 0 - 320, 640) d=0},{WCT{RemoteToken{13582bd Task{59f3d53 #8 type=standard A=10192:net.kravos.scan}}} m=TO_BACK f=NONE leash=Surface(name=Task=8)/@0xc9d7da4 sb=Rect(0, 0 - 320, 640) eb=Rect(0, 0 - 320, 640) d=0},{null m=TO_FRONT f=IS_WALLPAPER leash=Surface(name=WallpaperWindowToken{3924305 token=android.os.Binder@d4eae7c})/@0x9cb0456 sb=Rect(0, 0 - 320, 640) eb=Rect(0, 0 - 320, 640) d=0}]}
-45586:10-21 13:28:41.256  6275  6275 D AndroidRuntime: >>>>>> START com.android.internal.os.RuntimeInit uid 2000 <<<<<<
-45587:10-21 13:28:41.260  6275  6275 I AndroidRuntime: Using default boot image
-45588:10-21 13:28:41.260  6275  6275 I AndroidRuntime: Leaving lock profiling enabled
-45603:10-21 13:28:41.343  6275  6275 D AndroidRuntime: Calling main entry com.android.commands.uiautomator.Launcher
-45651:10-21 13:28:42.362  6275  6275 D AndroidRuntime: Shutting down VM
-45793:10-21 13:28:43.265   519   904 D CoreBackPreview: Window{6b3786a u0 net.kravos.scan/net.kravos.scan.ui.MainActivity}: Setting back callback OnBackInvokedCallbackInfo{mCallback=android.window.IOnBackInvokedCallback$Stub$Proxy@8f61837, mPriority=0, mIsAnimationCallback=false}
-45795:10-21 13:28:43.424   519  2075 I ImeTracker: net.kravos.scan:d9d84437: onRequestHide at ORIGIN_SERVER_HIDE_INPUT reason HIDE_UNSPECIFIED_WINDOW
-45796:10-21 13:28:43.424   519  2075 I ImeTracker: net.kravos.scan:d9d84437: onCancelled at PHASE_SERVER_SHOULD_HIDE
-45799:10-21 13:28:43.429  1552  1552 I GoogleInputMethodService: GoogleInputMethodService.onStartInput():1877 onStartInput(EditorInfo{inputType=0x0(NULL) imeOptions=0x0 privateImeOptions=null actionName=UNSPECIFIED actionLabel=null actionId=0 initialSelStart=-1 initialSelEnd=-1 initialCapsMode=0x0 hintText=null label=null packageName=net.kravos.scan fieldId=0 fieldName=null extras=null}, false)
-45817:10-21 13:28:49.464  6321  6321 D AndroidRuntime: >>>>>> START com.android.internal.os.RuntimeInit uid 2000 <<<<<<
-45818:10-21 13:28:49.468  6321  6321 I AndroidRuntime: Using default boot image
-45819:10-21 13:28:49.468  6321  6321 I AndroidRuntime: Leaving lock profiling enabled
-45832:10-21 13:28:49.545  6321  6321 D AndroidRuntime: Calling main entry com.android.commands.uiautomator.Launcher
-45887:10-21 13:28:50.610  6321  6321 D AndroidRuntime: Shutting down VM
-45966:10-21 13:28:51.514  1670  1708 W MediaProvider: Ignoring mutation of date_expires from net.kravos.scan
-45972:10-21 13:28:51.542   519   904 D CoreBackPreview: Window{6b3786a u0 net.kravos.scan/net.kravos.scan.ui.MainActivity}: Setting back callback null
-45973:10-21 13:28:51.545   519   533 W InputManager-JNI: Input channel object '6b3786a net.kravos.scan/net.kravos.scan.ui.MainActivity (client)' was disposed without first being removed with the input manager!
-45976:10-21 13:28:51.681   519  1917 I ImeTracker: net.kravos.scan:81c5c0cd: onRequestHide at ORIGIN_SERVER_HIDE_INPUT reason HIDE_UNSPECIFIED_WINDOW
-45977:10-21 13:28:51.681   519  1917 I ImeTracker: net.kravos.scan:81c5c0cd: onCancelled at PHASE_SERVER_SHOULD_HIDE
-45980:10-21 13:28:51.684  1552  1552 I GoogleInputMethodService: GoogleInputMethodService.onStartInput():1877 onStartInput(EditorInfo{inputType=0x0(NULL) imeOptions=0x0 privateImeOptions=null actionName=UNSPECIFIED actionLabel=null actionId=0 initialSelStart=-1 initialSelEnd=-1 initialCapsMode=0x0 hintText=null label=null packageName=net.kravos.scan fieldId=0 fieldName=null extras=null}, false)
-46053:10-21 13:29:04.728  6357  6357 D AndroidRuntime: >>>>>> START com.android.internal.os.RuntimeInit uid 2000 <<<<<<
-46054:10-21 13:29:04.732  6357  6357 I AndroidRuntime: Using default boot image
-46055:10-21 13:29:04.732  6357  6357 I AndroidRuntime: Leaving lock profiling enabled
-46068:10-21 13:29:04.809  6357  6357 D AndroidRuntime: Calling main entry com.android.commands.uiautomator.Launcher
-46115:10-21 13:29:05.835  6357  6357 D AndroidRuntime: Shutting down VM
-46299:10-21 13:29:09.221  6383  6383 D AndroidRuntime: >>>>>> START com.android.internal.os.RuntimeInit uid 2000 <<<<<<
-46300:10-21 13:29:09.224  6383  6383 I AndroidRuntime: Using default boot image
-46301:10-21 13:29:09.224  6383  6383 I AndroidRuntime: Leaving lock profiling enabled
-46314:10-21 13:29:09.302  6383  6383 D AndroidRuntime: Calling main entry com.android.commands.uiautomator.Launcher
-46372:10-21 13:29:10.323  6383  6383 D AndroidRuntime: Shutting down VM
-46448:10-21 13:29:13.706  6407  6407 D AndroidRuntime: >>>>>> START com.android.internal.os.RuntimeInit uid 2000 <<<<<<
-46449:10-21 13:29:13.709  6407  6407 I AndroidRuntime: Using default boot image
-46450:10-21 13:29:13.709  6407  6407 I AndroidRuntime: Leaving lock profiling enabled
-46463:10-21 13:29:13.789  6407  6407 D AndroidRuntime: Calling main entry com.android.commands.uiautomator.Launcher
-46518:10-21 13:29:14.816  6407  6407 D AndroidRuntime: Shutting down VM
-46620:10-21 13:29:21.953  6444  6444 D AndroidRuntime: >>>>>> START com.android.internal.os.RuntimeInit uid 2000 <<<<<<
-46621:10-21 13:29:21.956  6444  6444 I AndroidRuntime: Using default boot image
-46622:10-21 13:29:21.956  6444  6444 I AndroidRuntime: Leaving lock profiling enabled
-46635:10-21 13:29:22.032  6444  6444 D AndroidRuntime: Calling main entry com.android.commands.uiautomator.Launcher
-46737:10-21 13:29:23.062  6444  6444 D AndroidRuntime: Shutting down VM
-46766:10-21 13:29:26.437  6469  6469 D AndroidRuntime: >>>>>> START com.android.internal.os.RuntimeInit uid 2000 <<<<<<
-46767:10-21 13:29:26.441  6469  6469 I AndroidRuntime: Using default boot image
-46768:10-21 13:29:26.441  6469  6469 I AndroidRuntime: Leaving lock profiling enabled
-46781:10-21 13:29:26.519  6469  6469 D AndroidRuntime: Calling main entry com.android.commands.uiautomator.Launcher
-46839:10-21 13:29:27.541  6469  6469 D AndroidRuntime: Shutting down VM
-46930:10-21 13:29:34.786  6506  6506 D AndroidRuntime: >>>>>> START com.android.internal.os.RuntimeInit uid 2000 <<<<<<
-46931:10-21 13:29:34.790  6506  6506 I AndroidRuntime: Using default boot image
-46932:10-21 13:29:34.790  6506  6506 I AndroidRuntime: Leaving lock profiling enabled
-46946:10-21 13:29:34.873  6506  6506 D AndroidRuntime: Calling main entry com.android.commands.uiautomator.Launcher
-47018:10-21 13:29:35.902  6506  6506 D AndroidRuntime: Shutting down VM
-47075:10-21 13:29:40.824  1552  1552 I GoogleInputMethodService: GoogleInputMethodService.onStartInput():1877 onStartInput(EditorInfo{inputType=0x0(NULL) imeOptions=0x0 privateImeOptions=null actionName=UNSPECIFIED actionLabel=null actionId=0 initialSelStart=-1 initialSelEnd=-1 initialCapsMode=0x0 hintText=null label=null packageName=net.kravos.scan fieldId=0 fieldName=null extras=null}, false)
-47255:10-21 13:29:44.037  6552  6552 D AndroidRuntime: >>>>>> START com.android.internal.os.RuntimeInit uid 2000 <<<<<<
-47256:10-21 13:29:44.041  6552  6552 I AndroidRuntime: Using default boot image
-47257:10-21 13:29:44.041  6552  6552 I AndroidRuntime: Leaving lock profiling enabled
-47270:10-21 13:29:44.127  6552  6552 D AndroidRuntime: Calling main entry com.android.commands.uiautomator.Launcher
-47320:10-21 13:29:45.153  6552  6552 D AndroidRuntime: Shutting down VM
-47401:10-21 13:29:50.132  6578  6578 D AndroidRuntime: >>>>>> START com.android.internal.os.RuntimeInit uid 2000 <<<<<<
-47402:10-21 13:29:50.135  6578  6578 I AndroidRuntime: Using default boot image
-47403:10-21 13:29:50.135  6578  6578 I AndroidRuntime: Leaving lock profiling enabled
-47416:10-21 13:29:50.213  6578  6578 D AndroidRuntime: Calling main entry com.android.commands.uiautomator.Launcher
-47467:10-21 13:29:51.229  6578  6578 D AndroidRuntime: Shutting down VM
-47571:10-21 13:30:00.350  6612  6612 D AndroidRuntime: >>>>>> START com.android.internal.os.RuntimeInit uid 2000 <<<<<<
-47572:10-21 13:30:00.353  6612  6612 I AndroidRuntime: Using default boot image
-47573:10-21 13:30:00.353  6612  6612 I AndroidRuntime: Leaving lock profiling enabled
-47587:10-21 13:30:00.436  6612  6612 D AndroidRuntime: Calling main entry com.android.commands.uiautomator.Launcher
-47635:10-21 13:30:01.457  6612  6612 D AndroidRuntime: Shutting down VM
-47717:10-21 13:30:02.365   519  1773 D CoreBackPreview: Window{e391d30 u0 net.kravos.scan/net.kravos.scan.ui.MainActivity}: Setting back callback OnBackInvokedCallbackInfo{mCallback=android.window.IOnBackInvokedCallback$Stub$Proxy@ccadc5c, mPriority=0, mIsAnimationCallback=false}
-47718:10-21 13:30:02.393   519  2089 I ImeTracker: net.kravos.scan:3dd6be6c: onRequestHide at ORIGIN_SERVER_HIDE_INPUT reason HIDE_UNSPECIFIED_WINDOW
-47719:10-21 13:30:02.394   519  2089 I ImeTracker: net.kravos.scan:3dd6be6c: onCancelled at PHASE_SERVER_SHOULD_HIDE
-47723:10-21 13:30:02.396  1552  1552 I GoogleInputMethodService: GoogleInputMethodService.onStartInput():1877 onStartInput(EditorInfo{inputType=0x0(NULL) imeOptions=0x0 privateImeOptions=null actionName=UNSPECIFIED actionLabel=null actionId=0 initialSelStart=-1 initialSelEnd=-1 initialCapsMode=0x0 hintText=null label=null packageName=net.kravos.scan fieldId=0 fieldName=null extras=null}, false)
-48820:10-21 13:30:07.568  6664  6664 D AndroidRuntime: >>>>>> START com.android.internal.os.RuntimeInit uid 2000 <<<<<<
-48821:10-21 13:30:07.572  6664  6664 I AndroidRuntime: Using default boot image
-48822:10-21 13:30:07.572  6664  6664 I AndroidRuntime: Leaving lock profiling enabled
-48836:10-21 13:30:07.658  6664  6664 D AndroidRuntime: Calling main entry com.android.commands.uiautomator.Launcher
-48920:10-21 13:30:08.713  6664  6664 D AndroidRuntime: Shutting down VM
-48985:10-21 13:30:09.620   519  2088 D CoreBackPreview: Window{e391d30 u0 net.kravos.scan/net.kravos.scan.ui.MainActivity}: Setting back callback null
-48986:10-21 13:30:09.623   519  2088 W InputManager-JNI: Input channel object 'e391d30 net.kravos.scan/net.kravos.scan.ui.MainActivity (client)' was disposed without first being removed with the input manager!
-48989:10-21 13:30:09.655   519  2088 I ImeTracker: net.kravos.scan:e284bd10: onRequestHide at ORIGIN_SERVER_HIDE_INPUT reason HIDE_UNSPECIFIED_WINDOW
-48990:10-21 13:30:09.656   519  2088 I ImeTracker: net.kravos.scan:e284bd10: onCancelled at PHASE_SERVER_SHOULD_HIDE
-48993:10-21 13:30:09.658  1552  1552 I GoogleInputMethodService: GoogleInputMethodService.onStartInput():1877 onStartInput(EditorInfo{inputType=0x0(NULL) imeOptions=0x0 privateImeOptions=null actionName=UNSPECIFIED actionLabel=null actionId=0 initialSelStart=-1 initialSelEnd=-1 initialCapsMode=0x0 hintText=null label=null packageName=net.kravos.scan fieldId=0 fieldName=null extras=null}, false)
-49001:10-21 13:30:12.708  6690  6690 D AndroidRuntime: >>>>>> START com.android.internal.os.RuntimeInit uid 2000 <<<<<<
-49002:10-21 13:30:12.711  6690  6690 I AndroidRuntime: Using default boot image
-49003:10-21 13:30:12.711  6690  6690 I AndroidRuntime: Leaving lock profiling enabled
-49016:10-21 13:30:12.792  6690  6690 D AndroidRuntime: Calling main entry com.android.commands.uiautomator.Launcher
-49073:10-21 13:30:13.824  6690  6690 D AndroidRuntime: Shutting down VM
-49146:10-21 13:30:14.723  2884  2884 W KravosScan: scanner unavailable
-49147:10-21 13:30:14.723  2884  2884 W KravosScan: O2.a: Feature not available in the current version of the Google Play services
-49148:10-21 13:30:14.723  2884  2884 W KravosScan: 	at V2.b.b(Unknown Source:515)
-49149:10-21 13:30:14.723  2884  2884 W KravosScan: 	at K3.q.l(Unknown Source:35)
-49150:10-21 13:30:14.723  2884  2884 W KravosScan: 	at d3.a.s(Unknown Source:8)
-49151:10-21 13:30:14.723  2884  2884 W KravosScan: 	at u3.A.run(Unknown Source:106)
-49152:10-21 13:30:14.723  2884  2884 W KravosScan: 	at A0.r0.E(Unknown Source:23)
-49153:10-21 13:30:14.723  2884  2884 W KravosScan: 	at A0.q0.run(Unknown Source:2)
-49154:10-21 13:30:14.723  2884  2884 W KravosScan: 	at android.os.Handler.handleCallback(Handler.java:958)
-49155:10-21 13:30:14.723  2884  2884 W KravosScan: 	at android.os.Handler.dispatchMessage(Handler.java:99)
-49156:10-21 13:30:14.723  2884  2884 W KravosScan: 	at android.os.Looper.loopOnce(Looper.java:205)
-49157:10-21 13:30:14.723  2884  2884 W KravosScan: 	at android.os.Looper.loop(Looper.java:294)
-49158:10-21 13:30:14.723  2884  2884 W KravosScan: 	at android.app.ActivityThread.main(ActivityThread.java:8177)
-49159:10-21 13:30:14.723  2884  2884 W KravosScan: 	at java.lang.reflect.Method.invoke(Native Method)
-49160:10-21 13:30:14.723  2884  2884 W KravosScan: 	at com.android.internal.os.RuntimeInit$MethodAndArgsCaller.run(RuntimeInit.java:552)
-49161:10-21 13:30:14.723  2884  2884 W KravosScan: 	at com.android.internal.os.ZygoteInit.main(ZygoteInit.java:971)
+46:11-16 19:23:40.642   521   800 I SdkSandboxManager: No SDKs used. Skipping SDK data reconcilation for CallingInfo{mUid=10192, mPackageName='net.kravos.scan, mAppProcessToken='null'}
+202:11-16 19:23:40.839   521   919 V SplashScreenExceptionList: SplashScreen checking exception for package net.kravos.scan (target sdk:35) -> false
+207:11-16 19:23:40.853   521   919 I ActivityTaskManager: START u0 {flg=0x10000000 cmp=net.kravos.scan/.ui.MainActivity} with LAUNCH_SINGLE_TASK from uid 2000 (BAL_ALLOW_PERMISSION) result code=0
+210:11-16 19:23:40.875   829   872 V WindowManagerShell: Transition requested: android.os.BinderProxy@cb6514c TransitionRequestInfo { type = OPEN, triggerTask = TaskInfo{userId=0 taskId=8 displayId=0 isRunning=true baseIntent=Intent { flg=0x10000000 cmp=net.kravos.scan/.ui.MainActivity } baseActivity=ComponentInfo{net.kravos.scan/net.kravos.scan.ui.MainActivity} topActivity=ComponentInfo{net.kravos.scan/net.kravos.scan.ui.MainActivity} origActivity=null realActivity=ComponentInfo{net.kravos.scan/net.kravos.scan.ui.MainActivity} numActivities=1 lastActiveTime=41962 supportsMultiWindow=true resizeMode=1 isResizeable=true minWidth=-1 minHeight=-1 defaultMinSize=220 token=WCT{android.window.IWindowContainerToken$Stub$Proxy@32df595} topActivityType=1 pictureInPictureParams=null shouldDockBigOverlays=false launchIntoPipHostTaskId=-1 lastParentTaskIdBeforePip=-1 displayCutoutSafeInsets=null topActivityInfo=ActivityInfo{1a326aa net.kravos.scan.ui.MainActivity} launchCookies=[] positionInParent=Point(0, 0) parentTaskId=-1 isFocused=false isVisible=false isVisibleRequested=false isSleeping=false topActivityInSizeCompat=false topActivityEligibleForLetterboxEducation= false topActivityLetterboxed= false isFromDoubleTap= false topActivityLetterboxVerticalPosition= -1 topActivityLetterboxHorizontalPosition= -1 topActivityLetterboxWidth=-1 topActivityLetterboxHeight=-1 locusId=null displayAreaFeatureId=1 cameraCompatControlState=hidden}, remoteTransition = null, displayChange = null }
+219:11-16 19:23:40.902   521  2840 D CoreBackPreview: Window{58b8ad5 u0 Splash Screen net.kravos.scan}: Setting back callback OnBackInvokedCallbackInfo{mCallback=android.window.IOnBackInvokedCallback$Stub$Proxy@5eb93b6, mPriority=0, mIsAnimationCallback=false}
+285:11-16 19:23:40.979   521   539 V WindowManager: Sent Transition #6 createdAt=11-16 19:23:40.812 via request=TransitionRequestInfo { type = OPEN, triggerTask = TaskInfo{userId=0 taskId=8 displayId=0 isRunning=true baseIntent=Intent { flg=0x10000000 cmp=net.kravos.scan/.ui.MainActivity } baseActivity=ComponentInfo{net.kravos.scan/net.kravos.scan.ui.MainActivity} topActivity=ComponentInfo{net.kravos.scan/net.kravos.scan.ui.MainActivity} origActivity=null realActivity=ComponentInfo{net.kravos.scan/net.kravos.scan.ui.MainActivity} numActivities=1 lastActiveTime=41962 supportsMultiWindow=true resizeMode=1 isResizeable=true minWidth=-1 minHeight=-1 defaultMinSize=220 token=WCT{RemoteToken{4b82a9a Task{8b53e65 #8 type=standard A=10192:net.kravos.scan}}} topActivityType=1 pictureInPictureParams=null shouldDockBigOverlays=false launchIntoPipHostTaskId=-1 lastParentTaskIdBeforePip=-1 displayCutoutSafeInsets=null topActivityInfo=ActivityInfo{c813fcb net.kravos.scan.ui.MainActivity} launchCookies=[] positionInParent=Point(0, 0) parentTaskId=-1 isFocused=false isVisible=false isVisibleRequested=false isSleeping=false topActivityInSizeCompat=false topActivityEligibleForLetterboxEducation= false topActivityLetterboxed= false isFromDoubleTap= false topActivityLetterboxVerticalPosition= -1 topActivityLetterboxHorizontalPosition= -1 topActivityLetterboxWidth=-1 topActivityLetterboxHeight=-1 locusId=null displayAreaFeatureId=1 cameraCompatControlState=hidden}, remoteTransition = null, displayChange = null }
+287:11-16 19:23:40.984   521   539 V WindowManager:     info={id=6 t=OPEN f=0x0 trk=0 r=[0@Point(0, 0)] c=[{WCT{RemoteToken{4b82a9a Task{8b53e65 #8 type=standard A=10192:net.kravos.scan}}} m=OPEN f=NONE leash=Surface(name=Task=8)/@0x445638e sb=Rect(0, 0 - 320, 640) eb=Rect(0, 0 - 320, 640) d=0},{WCT{RemoteToken{67a33a8 Task{a8e5ea6 #1 type=home}}} m=TO_BACK f=SHOW_WALLPAPER leash=Surface(name=Task=1)/@0xff975d3 sb=Rect(0, 0 - 320, 640) eb=Rect(0, 0 - 320, 640) d=0}]}
+311:11-16 19:23:41.032   521   550 I ActivityManager: Start proc 3403:net.kravos.scan/u0a192 for next-top-activity {net.kravos.scan/net.kravos.scan.ui.MainActivity}
+336:11-16 19:23:41.062   830   830 I SafetyLabelChangedBroadcastReceiver: received broadcast packageName: net.kravos.scan, current user: UserHandle{0}, packageChangeEvent: NEW_INSTALL, intent user: UserHandle{0}
+410:11-16 19:23:41.237  1039  1039 D CarrierSvcBindHelper: onPackageAdded: net.kravos.scan
+450:11-16 19:23:41.312  1039  1321 D ImsResolver: maybeAddedImsService, packageName: net.kravos.scan
+538:11-16 19:23:41.585  3403  3403 I net.kravos.scan: Using CollectorTypeCC GC.
+539:11-16 19:23:41.587  3403  3403 W net.kravos.scan: Unexpected CPU variant for x86: x86_64.
+540:11-16 19:23:41.587  3403  3403 W net.kravos.scan: Known variants: atom, sandybridge, silvermont, goldmont, goldmont-plus, tremont, kabylake, default
+625:11-16 19:23:41.748  3403  3403 E net.kravos.scan: Not starting debugger since process cannot load the jdwp agent.
+905:11-16 19:23:42.349  3403  3403 D nativeloader: Configuring clns-6 for other apk /data/app/~~PUTQVa2TP3BHHqjwsYvZRg==/net.kravos.scan-B_Q0a0khZKIDu_Zt8aMXGg==/base.apk. target_sdk_version=35, uses_libraries=, library_path=/data/app/~~PUTQVa2TP3BHHqjwsYvZRg==/net.kravos.scan-B_Q0a0khZKIDu_Zt8aMXGg==/lib/x86_64:/data/app/~~PUTQVa2TP3BHHqjwsYvZRg==/net.kravos.scan-B_Q0a0khZKIDu_Zt8aMXGg==/base.apk!/lib/x86_64, permitted_path=/data:/mnt/expand:/data/user/0/net.kravos.scan
+922:11-16 19:23:42.380  3403  3403 V GraphicsEnvironment: ANGLE GameManagerService for net.kravos.scan: false
+924:11-16 19:23:42.380  3403  3403 V GraphicsEnvironment: net.kravos.scan is not listed in per-application setting
+1529:11-16 19:23:43.147   521  2041 D CoreBackPreview: Window{bb1b8d6 u0 net.kravos.scan/net.kravos.scan.ui.MainActivity}: Setting back callback OnBackInvokedCallbackInfo{mCallback=android.window.IOnBackInvokedCallback$Stub$Proxy@2352035, mPriority=0, mIsAnimationCallback=false}
+1840:11-16 19:23:43.587   521   539 I ActivityTaskManager: Displayed net.kravos.scan/.ui.MainActivity for user 0: +2s788ms
+1847:11-16 19:23:43.597   521  2781 I ImeTracker: net.kravos.scan:471f9032: onRequestHide at ORIGIN_SERVER_HIDE_INPUT reason HIDE_UNSPECIFIED_WINDOW
+1848:11-16 19:23:43.597   521  2781 I ImeTracker: net.kravos.scan:471f9032: onCancelled at PHASE_SERVER_SHOULD_HIDE
+1851:11-16 19:23:43.600  1496  1496 I GoogleInputMethodService: GoogleInputMethodService.onStartInput():1877 onStartInput(EditorInfo{inputType=0x0(NULL) imeOptions=0x0 privateImeOptions=null actionName=UNSPECIFIED actionLabel=null actionId=0 initialSelStart=-1 initialSelEnd=-1 initialCapsMode=0x0 hintText=null label=null packageName=net.kravos.scan fieldId=0 fieldName=null extras=null}, false)
+1862:11-16 19:23:43.614   521   536 W InputManager-JNI: Input channel object '58b8ad5 Splash Screen net.kravos.scan (client)' was disposed without first being removed with the input manager!
+1955:11-16 19:23:43.814  1039  1039 D CarrierSvcBindHelper: onPackageModified: net.kravos.scan
+2258:11-16 19:23:44.202  1039  1321 D ImsResolver: maybeAddedImsService, packageName: net.kravos.scan
+2335:11-16 19:23:44.289  1605  1605 I AiAiEcho: AppFetcherImplV2 updateApps package:[net.kravos.scan], userId:[0], reason:[package is added.].
+3165:11-16 19:23:45.591  1445  1530 I BlockstoreStorage: Clearing Blockstore Data for package net.kravos.scan [CONTEXT service_id=258 ]
+4927:11-16 19:23:48.509  1605  1605 I AiAiEcho: AppFetcherImpl onPackageChanged net.kravos.scan.
+4928:11-16 19:23:48.509  1605  3753 I AiAiEcho: AppIndexer Package:[net.kravos.scan] UserProfile:[0] Enabled:[true].
+4929:11-16 19:23:48.509  1605  3753 I AiAiEcho: AppFetcherImplV2 updateApps package:[net.kravos.scan], userId:[0], reason:[package is updated.].
+5261:11-16 19:23:48.760  3403  4205 D ProfileInstaller: Installing profile for net.kravos.scan
+6103:11-16 19:23:50.015   521   536 I ActivityTaskManager: START u0 {flg=0x10000000 cmp=net.kravos.scan/.ui.MainActivity (has extras)} with LAUNCH_SINGLE_TASK from uid 2000 (BAL_ALLOW_PERMISSION) result code=3
+6104:11-16 19:23:50.015   829   872 D WindowManagerShell: onActivityRestartAttempt: ComponentInfo{net.kravos.scan/net.kravos.scan.ui.MainActivity}
+6607:11-16 19:23:51.917  3403  3484 I net.kravos.scan: Background concurrent copying GC freed 262(69KB) AllocSpace objects, 5(74MB) LOS objects, 50% free, 19MB/38MB, paused 17us,10us total 333.354ms
+6785:11-16 19:23:52.524  3403  3662 I Tesseract(native): Initialized Tesseract API with language=srp+srp_latn+eng
+6979:11-16 19:23:53.168  3403  3484 W net.kravos.scan: Suspending all threads took: 13.404ms
+6980:11-16 19:23:53.169  3403  3484 I net.kravos.scan: Background young concurrent copying GC freed 1203(136KB) AllocSpace objects, 2(40KB) LOS objects, 0% free, 76MB/76MB, paused 11us,13.576ms total 59.398ms
+7058:11-16 19:23:53.481  3403  3484 I net.kravos.scan: Background concurrent copying GC freed 197(22KB) AllocSpace objects, 8(48MB) LOS objects, 41% free, 34MB/58MB, paused 16.272ms,32us total 308.620ms
+7262:11-16 19:23:54.864  3403  3484 I net.kravos.scan: Background young concurrent copying GC freed 3541(269KB) AllocSpace objects, 7(18MB) LOS objects, 27% free, 42MB/58MB, paused 441us,11us total 130.359ms
+7500:11-16 19:23:55.660  3403  3484 I net.kravos.scan: Background concurrent copying GC freed 1905(163KB) AllocSpace objects, 10(41MB) LOS objects, 49% free, 16MB/32MB, paused 6.758ms,17us total 91.266ms
+7716:11-16 19:23:56.289  3403  3484 I net.kravos.scan: Background concurrent copying GC freed 55(45KB) AllocSpace objects, 2(8104KB) LOS objects, 33% free, 47MB/71MB, paused 1.898ms,449us total 196.871ms
+8122:11-16 19:23:57.441  3403  3484 I net.kravos.scan: Background concurrent copying GC freed 170(21KB) AllocSpace objects, 3(10MB) LOS objects, 25% free, 70MB/94MB, paused 10us,7us total 174.221ms
+8366:11-16 19:23:58.552  3403  3662 I KravosScan: OCR r_91b71563_31367.jpg: 389 chars, 61 words, langs=[srp, srp_latn, eng]
+8753:11-16 19:23:59.386  3403  3661 I Tesseract(native): Initialized Tesseract API with language=srp+srp_latn+eng
+9036:11-16 19:24:03.606  3403  3661 I KravosScan: OCR r_22c95935_37356.jpg: 202 chars, 17 words, langs=[srp, srp_latn, eng]
+29547:11-16 19:25:20.717  5264  5264 D AndroidRuntime: >>>>>> START com.android.internal.os.RuntimeInit uid 2000 <<<<<<
+29548:11-16 19:25:20.729  5264  5264 I AndroidRuntime: Using default boot image
+29549:11-16 19:25:20.729  5264  5264 I AndroidRuntime: Leaving lock profiling enabled
+29562:11-16 19:25:20.872  5264  5264 D AndroidRuntime: Calling main entry com.android.commands.uiautomator.Launcher
+29625:11-16 19:25:21.932  5264  5264 D AndroidRuntime: Shutting down VM
+29754:11-16 19:25:27.034  5310  5310 D AndroidRuntime: >>>>>> START com.android.internal.os.RuntimeInit uid 2000 <<<<<<
+29755:11-16 19:25:27.037  5310  5310 I AndroidRuntime: Using default boot image
+29756:11-16 19:25:27.037  5310  5310 I AndroidRuntime: Leaving lock profiling enabled
+29769:11-16 19:25:27.119  5310  5310 D AndroidRuntime: Calling main entry com.android.commands.uiautomator.Launcher
+29824:11-16 19:25:28.153  5310  5310 D AndroidRuntime: Shutting down VM
+29921:11-16 19:25:38.270  5348  5348 D AndroidRuntime: >>>>>> START com.android.internal.os.RuntimeInit uid 2000 <<<<<<
+29922:11-16 19:25:38.274  5348  5348 I AndroidRuntime: Using default boot image
+29923:11-16 19:25:38.274  5348  5348 I AndroidRuntime: Leaving lock profiling enabled
+29950:11-16 19:25:38.370  5348  5348 D AndroidRuntime: Calling main entry com.android.commands.uiautomator.Launcher
+30194:11-16 19:25:39.415  5348  5348 D AndroidRuntime: Shutting down VM
+30358:11-16 19:25:49.511  5391  5391 D AndroidRuntime: >>>>>> START com.android.internal.os.RuntimeInit uid 2000 <<<<<<
+30359:11-16 19:25:49.515  5391  5391 I AndroidRuntime: Using default boot image
+30360:11-16 19:25:49.515  5391  5391 I AndroidRuntime: Leaving lock profiling enabled
+30373:11-16 19:25:49.598  5391  5391 D AndroidRuntime: Calling main entry com.android.commands.uiautomator.Launcher
+30425:11-16 19:25:50.631  5391  5391 D AndroidRuntime: Shutting down VM
+30758:11-16 19:26:00.728  5443  5443 D AndroidRuntime: >>>>>> START com.android.internal.os.RuntimeInit uid 2000 <<<<<<
+30759:11-16 19:26:00.731  5443  5443 I AndroidRuntime: Using default boot image
+30760:11-16 19:26:00.731  5443  5443 I AndroidRuntime: Leaving lock profiling enabled
+30773:11-16 19:26:00.812  5443  5443 D AndroidRuntime: Calling main entry com.android.commands.uiautomator.Launcher
+30821:11-16 19:26:01.835  5443  5443 D AndroidRuntime: Shutting down VM
+30906:11-16 19:26:02.729   521  1761 D CoreBackPreview: Window{65c19dd u0 net.kravos.scan/net.kravos.scan.ui.MainActivity}: Setting back callback OnBackInvokedCallbackInfo{mCallback=android.window.IOnBackInvokedCallback$Stub$Proxy@48576d9, mPriority=0, mIsAnimationCallback=false}
+30907:11-16 19:26:02.884   521  1761 I ImeTracker: net.kravos.scan:c61c1e61: onRequestHide at ORIGIN_SERVER_HIDE_INPUT reason HIDE_UNSPECIFIED_WINDOW
+30908:11-16 19:26:02.884   521  1761 I ImeTracker: net.kravos.scan:c61c1e61: onCancelled at PHASE_SERVER_SHOULD_HIDE
+30911:11-16 19:26:02.889  1496  1496 I GoogleInputMethodService: GoogleInputMethodService.onStartInput():1877 onStartInput(EditorInfo{inputType=0x0(NULL) imeOptions=0x0 privateImeOptions=null actionName=UNSPECIFIED actionLabel=null actionId=0 initialSelStart=-1 initialSelEnd=-1 initialCapsMode=0x0 hintText=null label=null packageName=net.kravos.scan fieldId=0 fieldName=null extras=null}, false)
+31030:11-16 19:26:08.875   521  1761 D CoreBackPreview: Window{65c19dd u0 net.kravos.scan/net.kravos.scan.ui.MainActivity}: Setting back callback null
+31031:11-16 19:26:08.879   521  1761 W InputManager-JNI: Input channel object '65c19dd net.kravos.scan/net.kravos.scan.ui.MainActivity (client)' was disposed without first being removed with the input manager!
+31033:11-16 19:26:08.896  3403  3483 I net.kravos.scan: Compiler allocated 4752KB to compile void B2.j5.b(java.lang.String, P.p, int)
+31034:11-16 19:26:08.908   521  1918 I ImeTracker: net.kravos.scan:2da064ee: onRequestHide at ORIGIN_SERVER_HIDE_INPUT reason HIDE_UNSPECIFIED_WINDOW
+31035:11-16 19:26:08.908   521  1918 I ImeTracker: net.kravos.scan:2da064ee: onCancelled at PHASE_SERVER_SHOULD_HIDE
+31038:11-16 19:26:08.910  1496  1496 I GoogleInputMethodService: GoogleInputMethodService.onStartInput():1877 onStartInput(EditorInfo{inputType=0x0(NULL) imeOptions=0x0 privateImeOptions=null actionName=UNSPECIFIED actionLabel=null actionId=0 initialSelStart=-1 initialSelEnd=-1 initialCapsMode=0x0 hintText=null label=null packageName=net.kravos.scan fieldId=0 fieldName=null extras=null}, false)
+31049:11-16 19:26:10.948  5498  5498 D AndroidRuntime: >>>>>> START com.android.internal.os.RuntimeInit uid 2000 <<<<<<
+31050:11-16 19:26:10.951  5498  5498 I AndroidRuntime: Using default boot image
+31051:11-16 19:26:10.951  5498  5498 I AndroidRuntime: Leaving lock profiling enabled
+31064:11-16 19:26:11.036  5498  5498 D AndroidRuntime: Calling main entry com.android.commands.uiautomator.Launcher
+31116:11-16 19:26:12.064  5498  5498 D AndroidRuntime: Shutting down VM
+31210:11-16 19:26:21.200  5533  5533 D AndroidRuntime: >>>>>> START com.android.internal.os.RuntimeInit uid 2000 <<<<<<
+31211:11-16 19:26:21.204  5533  5533 I AndroidRuntime: Using default boot image
+31212:11-16 19:26:21.204  5533  5533 I AndroidRuntime: Leaving lock profiling enabled
+31225:11-16 19:26:21.288  5533  5533 D AndroidRuntime: Calling main entry com.android.commands.uiautomator.Launcher
+31287:11-16 19:26:22.321  5533  5533 D AndroidRuntime: Shutting down VM
+31374:11-16 19:26:31.221  5585  5585 D AndroidRuntime: >>>>>> START com.android.internal.os.RuntimeInit uid 2000 <<<<<<
+31375:11-16 19:26:31.224  5585  5585 I AndroidRuntime: Using default boot image
+31376:11-16 19:26:31.224  5585  5585 I AndroidRuntime: Leaving lock profiling enabled
+31389:11-16 19:26:31.305  5585  5585 D AndroidRuntime: Calling main entry com.android.commands.uiautomator.Launcher
+31490:11-16 19:26:32.336  5585  5585 D AndroidRuntime: Shutting down VM
+31526:11-16 19:26:40.433  5612  5612 D AndroidRuntime: >>>>>> START com.android.internal.os.RuntimeInit uid 2000 <<<<<<
+31527:11-16 19:26:40.436  5612  5612 I AndroidRuntime: Using default boot image
+31528:11-16 19:26:40.436  5612  5612 I AndroidRuntime: Leaving lock profiling enabled
+31541:11-16 19:26:40.519  5612  5612 D AndroidRuntime: Calling main entry com.android.commands.uiautomator.Launcher
+31599:11-16 19:26:41.548  5612  5612 D AndroidRuntime: Shutting down VM
+31678:11-16 19:26:42.483  3403  3484 W net.kravos.scan: Cleared Reference was only reachable from finalizer (only reported once)
+31712:11-16 19:26:43.147   521   539 V WindowManager:     info={id=8 t=TO_FRONT f=0x80 trk=0 r=[0@Point(0, 0)] c=[{WCT{RemoteToken{67a33a8 Task{a8e5ea6 #1 type=home}}} m=TO_FRONT f=SHOW_WALLPAPER|MOVE_TO_TOP leash=Surface(name=Task=1)/@0xff975d3 sb=Rect(0, 0 - 320, 640) eb=Rect(0, 0 - 320, 640) d=0},{WCT{RemoteToken{4b82a9a Task{8b53e65 #8 type=standard A=10192:net.kravos.scan}}} m=TO_BACK f=NONE leash=Surface(name=Task=8)/@0x445638e sb=Rect(0, 0 - 320, 640) eb=Rect(0, 0 - 320, 640) d=0},{null m=TO_FRONT f=IS_WALLPAPER leash=Surface(name=WallpaperWindowToken{55ca317 token=android.os.Binder@1591b96})/@0x4188e52 sb=Rect(0, 0 - 320, 640) eb=Rect(0, 0 - 320, 640) d=0}]}
+31829:11-16 19:26:53.662  5659  5659 D AndroidRuntime: >>>>>> START com.android.internal.os.RuntimeInit uid 2000 <<<<<<
+31830:11-16 19:26:53.666  5659  5659 I AndroidRuntime: Using default boot image
+31831:11-16 19:26:53.666  5659  5659 I AndroidRuntime: Leaving lock profiling enabled
+31844:11-16 19:26:53.749  5659  5659 D AndroidRuntime: Calling main entry com.android.commands.uiautomator.Launcher
+31894:11-16 19:26:54.771  5659  5659 D AndroidRuntime: Shutting down VM
+32026:11-16 19:26:55.670   521  2039 D CoreBackPreview: Window{4e9abd7 u0 net.kravos.scan/net.kravos.scan.ui.MainActivity}: Setting back callback OnBackInvokedCallbackInfo{mCallback=android.window.IOnBackInvokedCallback$Stub$Proxy@e40130, mPriority=0, mIsAnimationCallback=false}
+32028:11-16 19:26:55.813   521  3081 I ImeTracker: net.kravos.scan:e51b31aa: onRequestHide at ORIGIN_SERVER_HIDE_INPUT reason HIDE_UNSPECIFIED_WINDOW
+32029:11-16 19:26:55.813   521  3081 I ImeTracker: net.kravos.scan:e51b31aa: onCancelled at PHASE_SERVER_SHOULD_HIDE
+32032:11-16 19:26:55.816  1496  1496 I GoogleInputMethodService: GoogleInputMethodService.onStartInput():1877 onStartInput(EditorInfo{inputType=0x0(NULL) imeOptions=0x0 privateImeOptions=null actionName=UNSPECIFIED actionLabel=null actionId=0 initialSelStart=-1 initialSelEnd=-1 initialCapsMode=0x0 hintText=null label=null packageName=net.kravos.scan fieldId=0 fieldName=null extras=null}, false)
+32067:11-16 19:27:01.878  5690  5690 D AndroidRuntime: >>>>>> START com.android.internal.os.RuntimeInit uid 2000 <<<<<<
+32068:11-16 19:27:01.882  5690  5690 I AndroidRuntime: Using default boot image
+32069:11-16 19:27:01.882  5690  5690 I AndroidRuntime: Leaving lock profiling enabled
+32082:11-16 19:27:01.965  5690  5690 D AndroidRuntime: Calling main entry com.android.commands.uiautomator.Launcher
+32134:11-16 19:27:03.014  5690  5690 D AndroidRuntime: Shutting down VM
+32215:11-16 19:27:03.906  1589  1628 W MediaProvider: Ignoring mutation of date_expires from net.kravos.scan
+32220:11-16 19:27:03.928   521  2058 W InputManager-JNI: Input channel object '4e9abd7 net.kravos.scan/net.kravos.scan.ui.MainActivity (client)' was disposed without first being removed with the input manager!
+32222:11-16 19:27:03.932   521   592 D CoreBackPreview: Window{4e9abd7 u0 net.kravos.scan/net.kravos.scan.ui.MainActivity EXITING}: Setting back callback null
+32226:11-16 19:27:04.009   521   592 I ImeTracker: net.kravos.scan:86d701c8: onRequestHide at ORIGIN_SERVER_HIDE_INPUT reason HIDE_UNSPECIFIED_WINDOW
+32227:11-16 19:27:04.009   521   592 I ImeTracker: net.kravos.scan:86d701c8: onCancelled at PHASE_SERVER_SHOULD_HIDE
+32230:11-16 19:27:04.011  1496  1496 I GoogleInputMethodService: GoogleInputMethodService.onStartInput():1877 onStartInput(EditorInfo{inputType=0x0(NULL) imeOptions=0x0 privateImeOptions=null actionName=UNSPECIFIED actionLabel=null actionId=0 initialSelStart=-1 initialSelEnd=-1 initialCapsMode=0x0 hintText=null label=null packageName=net.kravos.scan fieldId=0 fieldName=null extras=null}, false)
+32320:11-16 19:27:17.128  5730  5730 D AndroidRuntime: >>>>>> START com.android.internal.os.RuntimeInit uid 2000 <<<<<<
+32321:11-16 19:27:17.131  5730  5730 I AndroidRuntime: Using default boot image
+32322:11-16 19:27:17.131  5730  5730 I AndroidRuntime: Leaving lock profiling enabled
+32335:11-16 19:27:17.213  5730  5730 D AndroidRuntime: Calling main entry com.android.commands.uiautomator.Launcher
+32391:11-16 19:27:18.238  5730  5730 D AndroidRuntime: Shutting down VM
+32529:11-16 19:27:21.603  5757  5757 D AndroidRuntime: >>>>>> START com.android.internal.os.RuntimeInit uid 2000 <<<<<<
+32530:11-16 19:27:21.606  5757  5757 I AndroidRuntime: Using default boot image
+32531:11-16 19:27:21.606  5757  5757 I AndroidRuntime: Leaving lock profiling enabled
+32544:11-16 19:27:21.688  5757  5757 D AndroidRuntime: Calling main entry com.android.commands.uiautomator.Launcher
+32600:11-16 19:27:22.709  5757  5757 D AndroidRuntime: Shutting down VM
+32674:11-16 19:27:26.083  5782  5782 D AndroidRuntime: >>>>>> START com.android.internal.os.RuntimeInit uid 2000 <<<<<<
+32675:11-16 19:27:26.087  5782  5782 I AndroidRuntime: Using default boot image
+32676:11-16 19:27:26.087  5782  5782 I AndroidRuntime: Leaving lock profiling enabled
+32689:11-16 19:27:26.171  5782  5782 D AndroidRuntime: Calling main entry com.android.commands.uiautomator.Launcher
+32748:11-16 19:27:27.193  5782  5782 D AndroidRuntime: Shutting down VM
+32835:11-16 19:27:34.299  5817  5817 D AndroidRuntime: >>>>>> START com.android.internal.os.RuntimeInit uid 2000 <<<<<<
+32836:11-16 19:27:34.303  5817  5817 I AndroidRuntime: Using default boot image
+32837:11-16 19:27:34.303  5817  5817 I AndroidRuntime: Leaving lock profiling enabled
+32850:11-16 19:27:34.386  5817  5817 D AndroidRuntime: Calling main entry com.android.commands.uiautomator.Launcher
+32901:11-16 19:27:35.405  5817  5817 D AndroidRuntime: Shutting down VM
+32983:11-16 19:27:38.768  5841  5841 D AndroidRuntime: >>>>>> START com.android.internal.os.RuntimeInit uid 2000 <<<<<<
+32984:11-16 19:27:38.772  5841  5841 I AndroidRuntime: Using default boot image
+32985:11-16 19:27:38.772  5841  5841 I AndroidRuntime: Leaving lock profiling enabled
+32998:11-16 19:27:38.854  5841  5841 D AndroidRuntime: Calling main entry com.android.commands.uiautomator.Launcher
+33045:11-16 19:27:39.879  5841  5841 D AndroidRuntime: Shutting down VM
+33146:11-16 19:27:47.103  5878  5878 D AndroidRuntime: >>>>>> START com.android.internal.os.RuntimeInit uid 2000 <<<<<<
+33147:11-16 19:27:47.107  5878  5878 I AndroidRuntime: Using default boot image
+33148:11-16 19:27:47.107  5878  5878 I AndroidRuntime: Leaving lock profiling enabled
+33161:11-16 19:27:47.189  5878  5878 D AndroidRuntime: Calling main entry com.android.commands.uiautomator.Launcher
+33207:11-16 19:27:48.209  5878  5878 D AndroidRuntime: Shutting down VM
+33290:11-16 19:27:53.126  1496  1496 I GoogleInputMethodService: GoogleInputMethodService.onStartInput():1877 onStartInput(EditorInfo{inputType=0x0(NULL) imeOptions=0x0 privateImeOptions=null actionName=UNSPECIFIED actionLabel=null actionId=0 initialSelStart=-1 initialSelEnd=-1 initialCapsMode=0x0 hintText=null label=null packageName=net.kravos.scan fieldId=0 fieldName=null extras=null}, false)
+33304:11-16 19:27:56.324  5911  5911 D AndroidRuntime: >>>>>> START com.android.internal.os.RuntimeInit uid 2000 <<<<<<
+33305:11-16 19:27:56.327  5911  5911 I AndroidRuntime: Using default boot image
+33306:11-16 19:27:56.327  5911  5911 I AndroidRuntime: Leaving lock profiling enabled
+33319:11-16 19:27:56.409  5911  5911 D AndroidRuntime: Calling main entry com.android.commands.uiautomator.Launcher
+33432:11-16 19:27:57.433  5911  5911 D AndroidRuntime: Shutting down VM
+33566:11-16 19:28:02.395  5953  5953 D AndroidRuntime: >>>>>> START com.android.internal.os.RuntimeInit uid 2000 <<<<<<
+33567:11-16 19:28:02.399  5953  5953 I AndroidRuntime: Using default boot image
+33568:11-16 19:28:02.399  5953  5953 I AndroidRuntime: Leaving lock profiling enabled
+33581:11-16 19:28:02.480  5953  5953 D AndroidRuntime: Calling main entry com.android.commands.uiautomator.Launcher
+33638:11-16 19:28:03.499  5953  5953 D AndroidRuntime: Shutting down VM
+34918:11-16 19:28:12.606  6010  6010 D AndroidRuntime: >>>>>> START com.android.internal.os.RuntimeInit uid 2000 <<<<<<
+34919:11-16 19:28:12.610  6010  6010 I AndroidRuntime: Using default boot image
+34920:11-16 19:28:12.610  6010  6010 I AndroidRuntime: Leaving lock profiling enabled
+34933:11-16 19:28:12.692  6010  6010 D AndroidRuntime: Calling main entry com.android.commands.uiautomator.Launcher
+34985:11-16 19:28:13.714  6010  6010 D AndroidRuntime: Shutting down VM
+35063:11-16 19:28:14.599   521  2058 D CoreBackPreview: Window{3e9ca44 u0 net.kravos.scan/net.kravos.scan.ui.MainActivity}: Setting back callback OnBackInvokedCallbackInfo{mCallback=android.window.IOnBackInvokedCallback$Stub$Proxy@9db46b0, mPriority=0, mIsAnimationCallback=false}
+35066:11-16 19:28:14.629   521  2058 I ImeTracker: net.kravos.scan:5bdb5ce3: onRequestHide at ORIGIN_SERVER_HIDE_INPUT reason HIDE_UNSPECIFIED_WINDOW
+35067:11-16 19:28:14.629   521  2058 I ImeTracker: net.kravos.scan:5bdb5ce3: onCancelled at PHASE_SERVER_SHOULD_HIDE
+35070:11-16 19:28:14.630  1496  1496 I GoogleInputMethodService: GoogleInputMethodService.onStartInput():1877 onStartInput(EditorInfo{inputType=0x0(NULL) imeOptions=0x0 privateImeOptions=null actionName=UNSPECIFIED actionLabel=null actionId=0 initialSelStart=-1 initialSelEnd=-1 initialCapsMode=0x0 hintText=null label=null packageName=net.kravos.scan fieldId=0 fieldName=null extras=null}, false)
+35085:11-16 19:28:19.800  6040  6040 D AndroidRuntime: >>>>>> START com.android.internal.os.RuntimeInit uid 2000 <<<<<<
+35086:11-16 19:28:19.804  6040  6040 I AndroidRuntime: Using default boot image
+35087:11-16 19:28:19.804  6040  6040 I AndroidRuntime: Leaving lock profiling enabled
+35100:11-16 19:28:19.885  6040  6040 D AndroidRuntime: Calling main entry com.android.commands.uiautomator.Launcher
+35165:11-16 19:28:20.934  6040  6040 D AndroidRuntime: Shutting down VM
+35234:11-16 19:28:21.824   521  2061 D CoreBackPreview: Window{3e9ca44 u0 net.kravos.scan/net.kravos.scan.ui.MainActivity}: Setting back callback null
+35235:11-16 19:28:21.826   521  2061 W InputManager-JNI: Input channel object '3e9ca44 net.kravos.scan/net.kravos.scan.ui.MainActivity (client)' was disposed without first being removed with the input manager!
+35238:11-16 19:28:21.858   521   535 I ImeTracker: net.kravos.scan:e59a0eb3: onRequestHide at ORIGIN_SERVER_HIDE_INPUT reason HIDE_UNSPECIFIED_WINDOW
+35239:11-16 19:28:21.858   521   535 I ImeTracker: net.kravos.scan:e59a0eb3: onCancelled at PHASE_SERVER_SHOULD_HIDE
+35242:11-16 19:28:21.861  1496  1496 I GoogleInputMethodService: GoogleInputMethodService.onStartInput():1877 onStartInput(EditorInfo{inputType=0x0(NULL) imeOptions=0x0 privateImeOptions=null actionName=UNSPECIFIED actionLabel=null actionId=0 initialSelStart=-1 initialSelEnd=-1 initialCapsMode=0x0 hintText=null label=null packageName=net.kravos.scan fieldId=0 fieldName=null extras=null}, false)
+35252:11-16 19:28:24.914  6069  6069 D AndroidRuntime: >>>>>> START com.android.internal.os.RuntimeInit uid 2000 <<<<<<
+35253:11-16 19:28:24.918  6069  6069 I AndroidRuntime: Using default boot image
+35254:11-16 19:28:24.918  6069  6069 I AndroidRuntime: Leaving lock profiling enabled
+35267:11-16 19:28:25.000  6069  6069 D AndroidRuntime: Calling main entry com.android.commands.uiautomator.Launcher
+35329:11-16 19:28:26.026  6069  6069 D AndroidRuntime: Shutting down VM
+35401:11-16 19:28:26.901  3403  3403 W KravosScan: scanner unavailable
+35402:11-16 19:28:26.901  3403  3403 W KravosScan: S2.a: Feature not available in the current version of the Google Play services
+35403:11-16 19:28:26.901  3403  3403 W KravosScan: 	at i3.b.a(Unknown Source:319)
+35404:11-16 19:28:26.901  3403  3403 W KravosScan: 	at Z3.r.m(Unknown Source:35)
+35405:11-16 19:28:26.901  3403  3403 W KravosScan: 	at r3.a.r(Unknown Source:8)
+35406:11-16 19:28:26.901  3403  3403 W KravosScan: 	at I3.D.run(Unknown Source:106)
+35407:11-16 19:28:26.901  3403  3403 W KravosScan: 	at A0.r0.E(Unknown Source:23)
+35408:11-16 19:28:26.901  3403  3403 W KravosScan: 	at A0.q0.run(Unknown Source:2)
+35409:11-16 19:28:26.901  3403  3403 W KravosScan: 	at android.os.Handler.handleCallback(Handler.java:958)
+35410:11-16 19:28:26.901  3403  3403 W KravosScan: 	at android.os.Handler.dispatchMessage(Handler.java:99)
+35411:11-16 19:28:26.901  3403  3403 W KravosScan: 	at android.os.Looper.loopOnce(Looper.java:205)
+35412:11-16 19:28:26.901  3403  3403 W KravosScan: 	at android.os.Looper.loop(Looper.java:294)
+35413:11-16 19:28:26.901  3403  3403 W KravosScan: 	at android.app.ActivityThread.main(ActivityThread.java:8177)
+35414:11-16 19:28:26.901  3403  3403 W KravosScan: 	at java.lang.reflect.Method.invoke(Native Method)
+35415:11-16 19:28:26.901  3403  3403 W KravosScan: 	at com.android.internal.os.RuntimeInit$MethodAndArgsCaller.run(RuntimeInit.java:552)
+35416:11-16 19:28:26.901  3403  3403 W KravosScan: 	at com.android.internal.os.ZygoteInit.main(ZygoteInit.java:971)
+35489:11-16 19:28:40.513   829   872 D WindowManagerShell: onActivityRestartAttempt: ComponentInfo{net.kravos.scan/net.kravos.scan.ui.MainActivity}
+35490:11-16 19:28:40.513   521  2061 I ActivityTaskManager: START u0 {flg=0x10000000 cmp=net.kravos.scan/.ui.MainActivity (has extras)} with LAUNCH_SINGLE_TASK from uid 2000 (BAL_ALLOW_PERMISSION) result code=3
+35508:11-16 19:28:40.681  3403  5338 I KravosScan: smoke QR decoded 1: https://www.bancaintesa.rs@login-verify.example.com/potvrda
+35522:11-16 19:28:40.718   521  2061 D CoreBackPreview: Window{7e73714 u0 net.kravos.scan/net.kravos.scan.ui.MainActivity}: Setting back callback OnBackInvokedCallbackInfo{mCallback=android.window.IOnBackInvokedCallback$Stub$Proxy@38ab080, mPriority=0, mIsAnimationCallback=false}
+35523:11-16 19:28:40.759   521  2038 I ImeTracker: net.kravos.scan:61fb10b0: onRequestHide at ORIGIN_SERVER_HIDE_INPUT reason HIDE_UNSPECIFIED_WINDOW
+35524:11-16 19:28:40.759   521  2038 I ImeTracker: net.kravos.scan:61fb10b0: onCancelled at PHASE_SERVER_SHOULD_HIDE
+35527:11-16 19:28:40.761  1496  1496 I GoogleInputMethodService: GoogleInputMethodService.onStartInput():1877 onStartInput(EditorInfo{inputType=0x0(NULL) imeOptions=0x0 privateImeOptions=null actionName=UNSPECIFIED actionLabel=null actionId=0 initialSelStart=-1 initialSelEnd=-1 initialCapsMode=0x0 hintText=null label=null packageName=net.kravos.scan fieldId=0 fieldName=null extras=null}, false)
+35546:11-16 19:28:50.691   521  2038 D CoreBackPreview: Window{7e73714 u0 net.kravos.scan/net.kravos.scan.ui.MainActivity}: Setting back callback null
+35547:11-16 19:28:50.695   521  2038 W InputManager-JNI: Input channel object '7e73714 net.kravos.scan/net.kravos.scan.ui.MainActivity (client)' was disposed without first being removed with the input manager!
+35549:11-16 19:28:50.725   521  2038 I ImeTracker: net.kravos.scan:a855cf19: onRequestHide at ORIGIN_SERVER_HIDE_INPUT reason HIDE_UNSPECIFIED_WINDOW
+35550:11-16 19:28:50.725   521  2038 I ImeTracker: net.kravos.scan:a855cf19: onCancelled at PHASE_SERVER_SHOULD_HIDE
+35553:11-16 19:28:50.727  1496  1496 I GoogleInputMethodService: GoogleInputMethodService.onStartInput():1877 onStartInput(EditorInfo{inputType=0x0(NULL) imeOptions=0x0 privateImeOptions=null actionName=UNSPECIFIED actionLabel=null actionId=0 initialSelStart=-1 initialSelEnd=-1 initialCapsMode=0x0 hintText=null label=null packageName=net.kravos.scan fieldId=0 fieldName=null extras=null}, false)
+35568:11-16 19:28:52.873  6142  6142 D AndroidRuntime: >>>>>> START com.android.internal.os.RuntimeInit uid 2000 <<<<<<
+35569:11-16 19:28:52.876  6142  6142 I AndroidRuntime: Using default boot image
+35570:11-16 19:28:52.876  6142  6142 I AndroidRuntime: Leaving lock profiling enabled
+35583:11-16 19:28:52.960  6142  6142 D AndroidRuntime: Calling main entry com.android.commands.uiautomator.Launcher
+35645:11-16 19:28:54.003  6142  6142 D AndroidRuntime: Shutting down VM
+35717:11-16 19:28:54.886   521  3081 D CoreBackPreview: Window{181dde9 u0 net.kravos.scan/net.kravos.scan.ui.MainActivity}: Setting back callback OnBackInvokedCallbackInfo{mCallback=android.window.IOnBackInvokedCallback$Stub$Proxy@e916fa5, mPriority=0, mIsAnimationCallback=false}
+35718:11-16 19:28:54.925   521  3081 I ImeTracker: net.kravos.scan:b36fe8bd: onRequestHide at ORIGIN_SERVER_HIDE_INPUT reason HIDE_UNSPECIFIED_WINDOW
+35719:11-16 19:28:54.925   521  3081 I ImeTracker: net.kravos.scan:b36fe8bd: onCancelled at PHASE_SERVER_SHOULD_HIDE
+35722:11-16 19:28:54.930  1496  1496 I GoogleInputMethodService: GoogleInputMethodService.onStartInput():1877 onStartInput(EditorInfo{inputType=0x0(NULL) imeOptions=0x0 privateImeOptions=null actionName=UNSPECIFIED actionLabel=null actionId=0 initialSelStart=-1 initialSelEnd=-1 initialCapsMode=0x0 hintText=null label=null packageName=net.kravos.scan fieldId=0 fieldName=null extras=null}, false)
+35735:11-16 19:28:59.042   521  3081 D CoreBackPreview: Window{181dde9 u0 net.kravos.scan/net.kravos.scan.ui.MainActivity}: Setting back callback null
+35736:11-16 19:28:59.045   521  2812 W InputManager-JNI: Input channel object '181dde9 net.kravos.scan/net.kravos.scan.ui.MainActivity (client)' was disposed without first being removed with the input manager!
+35738:11-16 19:28:59.075   521  3081 I ImeTracker: net.kravos.scan:179558c6: onRequestHide at ORIGIN_SERVER_HIDE_INPUT reason HIDE_UNSPECIFIED_WINDOW
+35739:11-16 19:28:59.075   521  3081 I ImeTracker: net.kravos.scan:179558c6: onCancelled at PHASE_SERVER_SHOULD_HIDE
+35742:11-16 19:28:59.078  1496  1496 I GoogleInputMethodService: GoogleInputMethodService.onStartInput():1877 onStartInput(EditorInfo{inputType=0x0(NULL) imeOptions=0x0 privateImeOptions=null actionName=UNSPECIFIED actionLabel=null actionId=0 initialSelStart=-1 initialSelEnd=-1 initialCapsMode=0x0 hintText=null label=null packageName=net.kravos.scan fieldId=0 fieldName=null extras=null}, false)
+35756:11-16 19:29:01.111  6177  6177 D AndroidRuntime: >>>>>> START com.android.internal.os.RuntimeInit uid 2000 <<<<<<
+35757:11-16 19:29:01.115  6177  6177 I AndroidRuntime: Using default boot image
+35758:11-16 19:29:01.115  6177  6177 I AndroidRuntime: Leaving lock profiling enabled
+35771:11-16 19:29:01.199  6177  6177 D AndroidRuntime: Calling main entry com.android.commands.uiautomator.Launcher
+35818:11-16 19:29:02.216  6177  6177 D AndroidRuntime: Shutting down VM
+35901:11-16 19:29:03.102   521  3081 D CoreBackPreview: Window{530d292 u0 net.kravos.scan/net.kravos.scan.ui.MainActivity}: Setting back callback OnBackInvokedCallbackInfo{mCallback=android.window.IOnBackInvokedCallback$Stub$Proxy@28585de, mPriority=0, mIsAnimationCallback=false}
+35902:11-16 19:29:03.147   521  3081 I ImeTracker: net.kravos.scan:412db3d1: onRequestHide at ORIGIN_SERVER_HIDE_INPUT reason HIDE_UNSPECIFIED_WINDOW
+35903:11-16 19:29:03.147   521  3081 I ImeTracker: net.kravos.scan:412db3d1: onCancelled at PHASE_SERVER_SHOULD_HIDE
+35906:11-16 19:29:03.149  1496  1496 I GoogleInputMethodService: GoogleInputMethodService.onStartInput():1877 onStartInput(EditorInfo{inputType=0x0(NULL) imeOptions=0x0 privateImeOptions=null actionName=UNSPECIFIED actionLabel=null actionId=0 initialSelStart=-1 initialSelEnd=-1 initialCapsMode=0x0 hintText=null label=null packageName=net.kravos.scan fieldId=0 fieldName=null extras=null}, false)
+35919:11-16 19:29:07.258   521  3081 D CoreBackPreview: Window{530d292 u0 net.kravos.scan/net.kravos.scan.ui.MainActivity}: Setting back callback null
+35920:11-16 19:29:07.262   521  3081 W InputManager-JNI: Input channel object '530d292 net.kravos.scan/net.kravos.scan.ui.MainActivity (client)' was disposed without first being removed with the input manager!
+35922:11-16 19:29:07.292   521  2812 I ImeTracker: net.kravos.scan:e5bde6e9: onRequestHide at ORIGIN_SERVER_HIDE_INPUT reason HIDE_UNSPECIFIED_WINDOW
+35923:11-16 19:29:07.292   521  2812 I ImeTracker: net.kravos.scan:e5bde6e9: onCancelled at PHASE_SERVER_SHOULD_HIDE
+35926:11-16 19:29:07.294  1496  1496 I GoogleInputMethodService: GoogleInputMethodService.onStartInput():1877 onStartInput(EditorInfo{inputType=0x0(NULL) imeOptions=0x0 privateImeOptions=null actionName=UNSPECIFIED actionLabel=null actionId=0 initialSelStart=-1 initialSelEnd=-1 initialCapsMode=0x0 hintText=null label=null packageName=net.kravos.scan fieldId=0 fieldName=null extras=null}, false)
+35944:11-16 19:29:09.323  6213  6213 D AndroidRuntime: >>>>>> START com.android.internal.os.RuntimeInit uid 2000 <<<<<<
+35946:11-16 19:29:09.327  6213  6213 I AndroidRuntime: Using default boot image
+35947:11-16 19:29:09.327  6213  6213 I AndroidRuntime: Leaving lock profiling enabled
+35960:11-16 19:29:09.410  6213  6213 D AndroidRuntime: Calling main entry com.android.commands.uiautomator.Launcher
+36014:11-16 19:29:10.449  6213  6213 D AndroidRuntime: Shutting down VM
+36092:11-16 19:29:11.334   521  2039 D CoreBackPreview: Window{bba3777 u0 net.kravos.scan/net.kravos.scan.ui.MainActivity}: Setting back callback OnBackInvokedCallbackInfo{mCallback=android.window.IOnBackInvokedCallback$Stub$Proxy@e10d413, mPriority=0, mIsAnimationCallback=false}
+36093:11-16 19:29:11.378   521  2058 I ImeTracker: net.kravos.scan:2ff0d080: onRequestHide at ORIGIN_SERVER_HIDE_INPUT reason HIDE_UNSPECIFIED_WINDOW
+36094:11-16 19:29:11.378   521  2058 I ImeTracker: net.kravos.scan:2ff0d080: onCancelled at PHASE_SERVER_SHOULD_HIDE
+36097:11-16 19:29:11.380  1496  1496 I GoogleInputMethodService: GoogleInputMethodService.onStartInput():1877 onStartInput(EditorInfo{inputType=0x0(NULL) imeOptions=0x0 privateImeOptions=null actionName=UNSPECIFIED actionLabel=null actionId=0 initialSelStart=-1 initialSelEnd=-1 initialCapsMode=0x0 hintText=null label=null packageName=net.kravos.scan fieldId=0 fieldName=null extras=null}, false)
+36114:11-16 19:29:15.494   521  2058 D CoreBackPreview: Window{bba3777 u0 net.kravos.scan/net.kravos.scan.ui.MainActivity}: Setting back callback null
+36115:11-16 19:29:15.496   521  2058 W InputManager-JNI: Input channel object 'bba3777 net.kravos.scan/net.kravos.scan.ui.MainActivity (client)' was disposed without first being removed with the input manager!
+36117:11-16 19:29:15.525   521  2058 I ImeTracker: net.kravos.scan:24945664: onRequestHide at ORIGIN_SERVER_HIDE_INPUT reason HIDE_UNSPECIFIED_WINDOW
+36118:11-16 19:29:15.525   521  2058 I ImeTracker: net.kravos.scan:24945664: onCancelled at PHASE_SERVER_SHOULD_HIDE
+36121:11-16 19:29:15.527  1496  1496 I GoogleInputMethodService: GoogleInputMethodService.onStartInput():1877 onStartInput(EditorInfo{inputType=0x0(NULL) imeOptions=0x0 privateImeOptions=null actionName=UNSPECIFIED actionLabel=null actionId=0 initialSelStart=-1 initialSelEnd=-1 initialCapsMode=0x0 hintText=null label=null packageName=net.kravos.scan fieldId=0 fieldName=null extras=null}, false)
